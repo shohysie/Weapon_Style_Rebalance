@@ -1,0 +1,59 @@
+//武器风格达到2星3星时，扣掉1星并给予标记
+
+//开局双武器3星的情况
+IF
+	Proficiency(Player%n%,PROFICIENCY2WEAPON,3)
+	TriggerOverride(Player%n%,Global("SH#WP2WS","LOCALS",0))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WP2WR",Player%n%)	//设为2星并让局部变量SH#WP2WS变1
+		Continue()
+END
+//正常双武器2星
+IF
+	Proficiency(Player%n%,PROFICIENCY2WEAPON,2)
+	TriggerOverride(Player%n%,Global("SH#WP2WS","LOCALS",0))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WP2WS",Player%n%)	//设为1星并让局部变量SH#WP2WS变1
+		Continue()
+END
+//正常2星扣成1星之后又加到3星
+IF
+	Proficiency(Player%n%,PROFICIENCY2WEAPON,3)
+	TriggerOverride(Player%n%,Global("SH#WP2WS","LOCALS",1))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WP2WT",Player%n%)	//设为2星并让局部变量SH#WP2WS变2
+		Continue()
+END
+
+//正常双手武器2星
+IF
+	Proficiency(Player%n%,PROFICIENCY2HANDED,2)
+	TriggerOverride(Player%n%,Global("SH#WP2HS","LOCALS",0))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WP2HS",Player%n%)	//设为1星并让局部变量SH#WP2HS变1
+		Continue()
+END
+
+//正常剑盾2星
+IF
+	Proficiency(Player%n%,PROFICIENCYSWORDANDSHIELD,2)
+	TriggerOverride(Player%n%,Global("SH#WPSDS","LOCALS",0))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPSDS",Player%n%)	//设为1星并让局部变量SH#WPSDS变1
+		Continue()
+END
+
+//正常单手武器2星
+IF
+	Proficiency(Player%n%,PROFICIENCYSINGLEWEAPON,2)
+	TriggerOverride(Player%n%,Global("SH#WP1HS","LOCALS",0))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WP1HS",Player%n%)	//设为1星并让局部变量SH#WP1HS变1
+		Continue()
+END

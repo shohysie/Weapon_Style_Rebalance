@@ -1,0 +1,282 @@
+//右手对鸟无效为双手武器
+//双手武器攻击次数调整
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	Proficiency(Player%n%,PROFICIENCY2HANDED,1)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WPAR1",Player%n%)	//攻击次数+0.5
+		Continue()
+END
+
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	Proficiency(Player%n%,PROFICIENCY2HANDED,2)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WPAR2",Player%n%)	//攻击次数+1
+		Continue()
+END
+
+//双手武器额外伤害加成
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP2HA",Player%n%)	//视力量加伤害，但不认识18/xx
+		Continue()
+END
+
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	CheckStat(Player%n%,18,STR)
+	CheckStatGT(Player%n%,50,STREXTRA)
+	CheckStatLT(Player%n%,91,STREXTRA)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP2HB",Player%n%)	//多+1伤害
+		Continue()
+END
+
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	CheckStat(Player%n%,18,STR)
+	CheckStatGT(Player%n%,90,STREXTRA)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP2HB",Player%n%)
+		ReallyForceSpellRes("SH#WP2HB",Player%n%)	//多+2伤害
+		Continue()
+END
+
+//如果发现扣掉的星会加以补偿
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,Global("SH#WP2HS","LOCALS",1))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WPEX1",Player%n%)
+		Continue()
+END
+
+//左右手都对鸟有效为双武器
+//减少伤害
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+	!ProficiencyGT(Player%n%,PROFICIENCY2WEAPON,0)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP2W0",Player%n%)	//武器伤害-2
+		Continue()
+END
+
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+	Proficiency(Player%n%,PROFICIENCY2WEAPON,1)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP2W1",Player%n%)	//武器伤害-2但AC+1有利
+		Continue()
+END
+
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+	Proficiency(Player%n%,PROFICIENCY2WEAPON,2)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP2W2",Player%n%)	//武器伤害-1，AC+2有利
+		Continue()
+END
+
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+	Proficiency(Player%n%,PROFICIENCY2WEAPON,3)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP2W3",Player%n%)	//武器伤害不减，AC+2有利
+		Continue()
+END
+
+//双武器必须投入五颗星才能不减攻击次数
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+	!Proficiency(Player%n%,PROFICIENCY2WEAPON,3)
+	!TriggerOverride(Player%n%,GlobalGT("SH#WP2WS","LOCALS",1))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WPAR0",Player%n%)	//攻击次数-0.5
+		Continue()
+END
+
+//如果发现扣掉的星会加以补偿
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+	TriggerOverride(Player%n%,GlobalGT("SH#WP2WS","LOCALS",0))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WPEX1",Player%n%)
+		Continue()
+END
+
+//右手对鸟有效同时左手有东西但对鸟无效/正装备盾牌是剑盾
+//剑盾流特效可以在持有远程武器时施展
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	//HasItemCategory(Player%n%,SHIELD,TRUE)
+	HasItemSlot(Player%n%,SLOT_SHIELD)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))	
+	Proficiency(Player%n%,PROFICIENCYSWORDANDSHIELD,1)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WPSDA",Player%n%)
+		ReallyForceSpellRes("SH#WPSDX",Player%n%)	//初次攻击命中+2，命中后自动移除此法术
+		Continue()
+END
+
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	//HasItemCategory(Player%n%,SHIELD,TRUE)
+	HasItemSlot(Player%n%,SLOT_SHIELD)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))	
+	Proficiency(Player%n%,PROFICIENCYSWORDANDSHIELD,2)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WPSDB",Player%n%)
+		ReallyForceSpellRes("SH#WPSDX",Player%n%)	//初次攻击命中+2，命中后自动移除此法术
+		Continue()
+END
+
+//如果发现扣掉的星会加以补偿
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	//HasItemCategory(Player%n%,SHIELD,TRUE)
+	HasItemSlot(Player%n%,SLOT_SHIELD)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))	
+	TriggerOverride(Player%n%,Global("SH#WPSDS","LOCALS",1))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WPEX1",Player%n%)
+		Continue()
+END
+
+//右手对鸟有效且左手无物品是单手武器
+//单手武器攻击次数和攻击效果调整
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!Class(Player%n%,Monk)
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	!HasItemSlot(Player%n%,SLOT_SHIELD)
+	Proficiency(Player%n%,PROFICIENCYSINGLEWEAPON,1)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP1HA",Player%n%)
+		ReallyForceSpellRes("SH#WP1H1",Player%n%)
+		Continue()
+END
+
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!Class(Player%n%,Monk)
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	!HasItemSlot(Player%n%,SLOT_SHIELD)
+	Proficiency(Player%n%,PROFICIENCYSINGLEWEAPON,2)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WPAR1",Player%n%)
+		ReallyForceSpellRes("SH#WP1HB",Player%n%)
+		ReallyForceSpellRes("SH#WP1H2",Player%n%)
+		Continue()
+END
+
+//如果发现扣掉的星会加以补偿
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	!HasItemSlot(Player%n%,SLOT_SHIELD)
+	TriggerOverride(Player%n%,Global("SH#WP1HS","LOCALS",1))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WPEX1",Player%n%)
+		Continue()
+END
+
+//和尚
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	Class(Player%n%,Monk)
+	!IsWeaponRanged(Player%n%)
+	OR(2)
+		HasWeaponEquiped(Player%n%)
+		HasItemSlot(Player%n%,SLOT_SHIELD)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP1HA",Player%n%)
+		Continue()
+END
+
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	Class(Player%n%,Monk)
+	!HasWeaponEquiped(Player%n%)
+	!HasItemSlot(Player%n%,SLOT_SHIELD)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP1HB",Player%n%)
+		Continue()
+END

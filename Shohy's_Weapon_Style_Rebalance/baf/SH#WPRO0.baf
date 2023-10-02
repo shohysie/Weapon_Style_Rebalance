@@ -1,0 +1,15 @@
+//£®ƒÒ√‚“ﬂÀ´ ÷Œ‰∆˜£©
+IF
+	OnCreation()
+THEN
+	RESPONSE #100
+		SetGlobalTimer("EXISTIME","LOCALS",6)
+		Continue()
+END
+
+IF
+	GlobalTimerExpired("EXISTIME","LOCALS")
+THEN
+	RESPONSE #100
+		DestroySelf()
+END

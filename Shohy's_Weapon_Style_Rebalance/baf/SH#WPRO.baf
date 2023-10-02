@@ -1,0 +1,9 @@
+IF
+	!CombatCounter(0)
+	!GlobalTimerNotExpired("SH#WPROC","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("SH#WPROC","GLOBAL",6)
+		CreateCreature("SH#WPROB",[11.11],0)
+		Continue()
+END

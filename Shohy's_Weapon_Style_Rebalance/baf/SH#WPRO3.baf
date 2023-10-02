@@ -1,0 +1,38 @@
+//武器细节调整
+
+//右手对鸟无效为双手武器
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WD2HA",Player%n%)
+		Continue()
+END
+
+//左右手都对鸟有效为双武器
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WD2WA",Player%n%)
+		Continue()
+END
+
+//右手对鸟有效同时左手对鸟无效是剑盾或单手
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WD1HA",Player%n%)
+		Continue()
+END

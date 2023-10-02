@@ -1,0 +1,13 @@
+//只对每个队员施法一次，范围影响附近敌人，持续6秒
+IF
+	Global("WPENEMY","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("WPENEMY","LOCALS",1)
+		ReallyForceSpellRes("SH#WPE00",Player1)
+		ReallyForceSpellRes("SH#WPE00",Player2)
+		ReallyForceSpellRes("SH#WPE00",Player3)
+		ReallyForceSpellRes("SH#WPE00",Player4)
+		ReallyForceSpellRes("SH#WPE00",Player5)
+		ReallyForceSpellRes("SH#WPE00",Player6)
+END

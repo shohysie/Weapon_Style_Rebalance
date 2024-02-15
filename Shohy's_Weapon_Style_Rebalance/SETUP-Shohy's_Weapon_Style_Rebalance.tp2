@@ -1,7 +1,7 @@
 BACKUP ~Shohy's_Weapon_Style_Rebalance/backup~
 AUTHOR ~shohy@126.com~
 
-VERSION ~v0.2~
+VERSION ~v0.4~
 AUTO_EVAL_STRINGS
 
 README ~%MOD_FOLDER%/README.%LANGUAGE%.txt~
@@ -77,6 +77,10 @@ COPY ~%MOD_FOLDER%/spl/SH#WPSDE.spl~ ~override~
 		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode =235 savebonus = (5 - headernum) END
 	END
 
+COPY_EXISTING ~SH#WPSDE.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =65 target = 1 timing = 10 duration = 1 insert_point = 99 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =235 target = 1 timing = 10 duration = 1 parameter1 = 12 parameter2 = 4 insert_point = 100 END
+	
 COPY ~%MOD_FOLDER%/spl/SH#WPSDH.spl~ ~override~
 	FOR (headernum = 2 ; headernum < 12 ; ++headernum) BEGIN
 		SAY (0x22e+ ((headernum - 2) * 0x150) ) @24	//ÔâÊÜ¶Ü»÷
@@ -87,12 +91,33 @@ COPY ~%MOD_FOLDER%/spl/SH#WPSDH.spl~ ~override~
 		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode =165 savebonus = (5 - headernum) END
 	END
 
-COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDI.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 1 END
-COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDJ.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 3 END
-COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDK.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 7 END
-COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDL.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 9 END
-COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDM.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 11 END
-COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDN.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 14 END
+COPY_EXISTING ~SH#WPSDH.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =65 target = 1 timing = 10 duration = 1 insert_point = 99 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =235 target = 1 timing = 10 duration = 1 parameter1 = 12 parameter2 = 4 insert_point = 100 END
+COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDI.spl~
+	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =65 target = 1 timing = 10 duration = 1 insert_point = 99 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =235 target = 1 timing = 10 duration = 1 parameter1 = 12 parameter2 = 4 insert_point = 100 END
+COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDJ.spl~
+	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 3 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =65 target = 1 timing = 10 duration = 1 insert_point = 99 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =235 target = 1 timing = 10 duration = 1 parameter1 = 12 parameter2 = 4 insert_point = 100 END
+COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDK.spl~
+	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =65 target = 1 timing = 10 duration = 1 insert_point = 99 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =235 target = 1 timing = 10 duration = 1 parameter1 = 12 parameter2 = 4 insert_point = 100 END
+COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDL.spl~
+	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 9 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =65 target = 1 timing = 10 duration = 1 insert_point = 99 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =235 target = 1 timing = 10 duration = 1 parameter1 = 12 parameter2 = 4 insert_point = 100 END
+COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDM.spl~
+	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 11 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =65 target = 1 timing = 10 duration = 1 insert_point = 99 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =235 target = 1 timing = 10 duration = 1 parameter1 = 12 parameter2 = 4 insert_point = 100 END
+COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDN.spl~
+	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 12 parameter1 = 14 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =65 target = 1 timing = 10 duration = 1 insert_point = 99 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode =235 target = 1 timing = 10 duration = 1 parameter1 = 12 parameter2 = 4 insert_point = 100 END
 
 COPY ~%MOD_FOLDER%/baf/SH#WPRO0.baf~ ~%MOD_FOLDER%/baf/SH#WPROA.baf~
 	FOR (n=1;n<7;++n) BEGIN
@@ -101,11 +126,11 @@ COPY ~%MOD_FOLDER%/baf/SH#WPRO0.baf~ ~%MOD_FOLDER%/baf/SH#WPROA.baf~
 
 COMPILE ~%MOD_FOLDER%/baf/SH#WPROA.baf~
 
-EXTEND_BOTTOM ~baldur.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
-EXTEND_BOTTOM ~baldur25.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
+EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
+EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
 
 ACTION_IF FILE_EXISTS_IN_GAME bdbaldur.bcs THEN BEGIN	
-	EXTEND_BOTTOM ~bdbaldur.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
+	EXTEND_TOP ~bdbaldur.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
 END
 
 BEGIN @2

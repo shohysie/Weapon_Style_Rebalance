@@ -2,6 +2,7 @@
 
 Rebalance for Two-Handed Weapon Style, Sword and Shield Style, Single-Weapon Style and Two-Weapon Style, in order that all Weapon Styles are useful.
 All ajustments take effect only in combat, not in peacetime.
+One glitch: After a battle, the time to save the game may be delayed for a few seconds.
 
 
 ///////////Compatibility////////////
@@ -81,7 +82,13 @@ Enemies without shields in hands who equip long-edged weapons, bludgeon weapons,
 Hostile monk gains a trip attack per round, which acts the same as trip attack of rank 2 Single-Weapon Style.
 
 
-///////////VersionHistory///////////
+///////////Version History///////////
+
+V 0.4
+Added a little visual effect better than nothing for shield bash.
+Fixed the problem that damage with Two-Handed Weapon Style was greater than expected.
+Fixed the problem that tohit of sudden strike with Sword and Shield Style may be greater than expected.
+The problem that the game could not be saved immediately after a battle was not solved, but the waiting time before saving the game is greatly reduced.
 
 V 0.3
 Fixed a serious problem that causes game crashing. 

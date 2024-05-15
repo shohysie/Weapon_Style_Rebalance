@@ -31,8 +31,8 @@ Strength modifier to your melee damage is increased by 50%.
 
 [Sword and Shield Style]
 With a shield that blocks the enemy's view, you can make a sudden strike with +2 bonus to attack rolls per round.
-1 Slot: +1 bonus to melee AC, one additional shield bash on nearest enemy per round besides normal attacks, which can break down your enemy's defense (-2 penalty to AC) for a while and knock him back. The enemy can make a save vs. breath with a +4 bonus to avoid the shield bash (-1 save penalty for every 5 levels of the attacker).
-2 Slots: +2 bonus to melee AC, one additional shield bash on nearest enemy per round besides normal attacks, which casues stunning damage of 1D4 + strength modifier and an extra stunning check.  The enemy can make a save vs. breath with a +4 bonus to avoid being stunned (-1 save penalty for every 5 levels of the attacker), but he'll still suffer a defense break and being knocked back.
+1 Slot: +1 bonus to melee AC, one additional Shield Bash on nearest enemy per round besides normal attacks, which can break down your enemy's defense (-2 penalty to AC) for a while and knock him back. The enemy can make a save vs. breath with a +4 bonus to avoid the shield bash (-1 save penalty for every 5 levels of the attacker).
+2 Slots: +2 bonus to melee AC, one additional Shield Bash on nearest enemy per round besides normal attacks, which casues stunning damage of 1D4 + strength modifier and an extra stunning check.  The enemy can make a save vs. breath with a +4 bonus to avoid being stunned (-1 save penalty for every 5 levels of the attacker), but he'll still suffer a defense break and being knocked back.
 A hasted character can cast sudden strike and shield bash twice in one round.
 
 [Unarmed (Monks only)]
@@ -68,18 +68,31 @@ If you're using an two-handed spear, you get +2 to damage.
 For the special attacks above that require save vs. breath, the enemy can make save with a +4 bonus, and with -1 save penalty for every 5 levels of the attacker.
 
 
-④Similar benefits for enemies
+④Similar benefits for allies and enemies
 
-Enemies can also gain some weapon effects against players, but they are not accurate: 
-Enemies of warrior classes that hold spears, staves or halberds are treated to be rank 2 in Two-Handed Weapon Style, for non-warrior classes they're treated to be rank 1.
-Enemies of warrior classes that hold shields are treated to be rank 2 in Sword and Shield Style, for non-warrior classes they're treated to be rank 1.
-Enemies of warrior classes without shields in hands obtain +1/2 attack per round.
-Enemies with one-handed light weapons gain dexterity modifier on THAC0; Enemies with two-handed light weapons gain +1 bonus to melee AC and THAC0.
-Enemies without shields in hands who equip long-edged weapons, bludgeon weapons, or weapons with tripping property, can also cast cleave, mighty blow and hook attacks. Such special attacks are switched to two-handed version whe their strengths are over 18.
-Hostile monk gains a trip attack per round, which acts the same as trip attack of rank 2 Single-Weapon Style.
+Allies and enemies also obtain some abilities: 
+
+Creatures of warrior classes that hold spears, staves or halberds are treated to be rank 2 in Two-Handed Weapon Style, for non-warrior classes they're treated to be rank 1.
+Creatures of warrior classes that hold shields are treated to be rank 2 in Sword and Shield Style, for non-warrior classes they're treated to be rank 1.
+Creatures of warrior classes without shields in hands obtain +1/2 attack per round.
+Monks obtain a trip attack per round, which acts the same as trip attack of rank 2 Single-Weapon Style.
+
+More abilities for allies and enemies with component ③ installed: 
+
+Creatures with one-handed light weapons gain dexterity modifier on THAC0; Creatures with two-handed light weapons gain +1 bonus to melee AC and THAC0.
+Creatures without shields in hands who equip long-edged weapons, bludgeon weapons, or weapons with tripping property, can also cast cleave, mighty blow and hook attacks respectively. Such special attacks are switched to two-handed version whe their strengths are over 18.
 
 
 ///////////Version History///////////
+
+V 0.5
+Fixed the problem that component 4 did not work. Now component 4 also allows friendly creatures to gain similar abilities. 
+Creatures will not cast Shield Bash under special conditions such as invisibility, singing, disability, etc. 
+Fixed a problem that damage of Shield Bash failed to increase with strength. 
+Shield Bash now shows "A Shield Bash B" instead of "B Bashed by shield" .
+Action of the shield strike is more obvious, and now has a sound effect.
+Each Weapon Style will give a hint when its rank decreases due to component 2. 
+Fix some other details.
 
 V 0.4
 Added a little visual effect better than nothing for shield bash.

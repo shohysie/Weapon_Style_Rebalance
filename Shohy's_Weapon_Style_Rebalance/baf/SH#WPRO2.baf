@@ -7,6 +7,7 @@ IF
 THEN
 	RESPONSE #100
 		ReallyForceSpellRes("SH#WP2WR",Player%n%)	//设为2星并让局部变量SH#WP2WS变1
+		DisplayStringHead(Player%n%,@31)	//提示扣星
 		Continue()
 END
 //正常双武器2星
@@ -16,6 +17,7 @@ IF
 THEN
 	RESPONSE #100
 		ReallyForceSpellRes("SH#WP2WS",Player%n%)	//设为1星并让局部变量SH#WP2WS变1
+		DisplayStringHead(Player%n%,@32)	//提示扣星
 		Continue()
 END
 //正常2星扣成1星之后又加到3星
@@ -25,6 +27,7 @@ IF
 THEN
 	RESPONSE #100
 		ReallyForceSpellRes("SH#WP2WT",Player%n%)	//设为2星并让局部变量SH#WP2WS变2
+		DisplayStringHead(Player%n%,@33)	//提示扣星
 		Continue()
 END
 
@@ -35,6 +38,7 @@ IF
 THEN
 	RESPONSE #100
 		ReallyForceSpellRes("SH#WP2HS",Player%n%)	//设为1星并让局部变量SH#WP2HS变1
+		DisplayStringHead(Player%n%,@34)	//提示扣星
 		Continue()
 END
 
@@ -45,6 +49,7 @@ IF
 THEN
 	RESPONSE #100
 		ReallyForceSpellRes("SH#WPSDS",Player%n%)	//设为1星并让局部变量SH#WPSDS变1
+		DisplayStringHead(Player%n%,@35)	//提示扣星
 		Continue()
 END
 
@@ -55,5 +60,6 @@ IF
 THEN
 	RESPONSE #100
 		ReallyForceSpellRes("SH#WP1HS",Player%n%)	//设为1星并让局部变量SH#WP1HS变1
+		DisplayStringHead(Player%n%,@36)	//提示扣星
 		Continue()
 END

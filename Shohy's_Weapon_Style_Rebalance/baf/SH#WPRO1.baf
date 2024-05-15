@@ -168,17 +168,34 @@ IF
 	//HasItemCategory(Player%n%,SHIELD,TRUE)
 	HasItemSlot(Player%n%,SLOT_SHIELD)
 	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))	
-	Proficiency(Player%n%,PROFICIENCYSWORDANDSHIELD,1)
+	ProficiencyGT(Player%n%,PROFICIENCYSWORDANDSHIELD,0)
 THEN
 	RESPONSE #100
 		SetGlobalTimer("WPCOUNT","LOCALS",1)
-		ReallyForceSpellRes("SH#WPSDA",Player%n%)
 		ReallyForceSpellRes("SH#WPSDX",Player%n%)	//初次攻击命中+2，命中后自动移除此法术
 		Continue()
 END
 
 IF
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	ModalStateObject(Player%n%,NONE)
+	NotStateCheck(Player%n%,STATE_DISABLED)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	//HasItemCategory(Player%n%,SHIELD,TRUE)
+	HasItemSlot(Player%n%,SLOT_SHIELD)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))	
+	Proficiency(Player%n%,PROFICIENCYSWORDANDSHIELD,1)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WPSDA",Player%n%)
+		Continue()
+END
+
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	ModalStateObject(Player%n%,NONE)
+	NotStateCheck(Player%n%,STATE_DISABLED)
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
 	//HasItemCategory(Player%n%,SHIELD,TRUE)
 	HasItemSlot(Player%n%,SLOT_SHIELD)
@@ -188,7 +205,6 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("WPCOUNT","LOCALS",1)
 		ReallyForceSpellRes("SH#WPSDB",Player%n%)
-		ReallyForceSpellRes("SH#WPSDX",Player%n%)	//初次攻击命中+2，命中后自动移除此法术
 		Continue()
 END
 

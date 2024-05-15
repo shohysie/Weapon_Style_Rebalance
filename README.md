@@ -84,6 +84,15 @@ Hostile monk gains a trip attack per round, which acts the same as trip attack o
 
 ///////////Version History///////////
 
+V 0.5
+Fixed the problem that component 4 did not work. Now component 4 also allows friendly creatures to gain similar abilities. 
+Creatures will not cast Shield Bash under special conditions such as invisibility, singing, disability, etc. 
+Fixed a problem that damage of Shield Bash failed to increase with strength. 
+Shield Bash now shows "A Shield Bash B" instead of "B Bashed by shield" .
+Action of the shield strike is more obvious, and now has a sound effect.
+Each Weapon Style will give a hint when its rank decreases due to component 2. 
+Fix some other details.
+
 V 0.4
 Added a little visual effect better than nothing for shield bash.
 Fixed the problem that damage with Two-Handed Weapon Style was greater than expected.

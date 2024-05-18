@@ -166,52 +166,30 @@ COPY ~%MOD_FOLDER%/spl/noname1~ ~override~
 COPY ~%MOD_FOLDER%/spl/SH#WE1HC.spl~ ~override~
 	SAY NAME1 @25	//»ØÐýÕ¶
 	SAY UNIDENTIFIED_DESC @25
-	WRITE_SHORT   0x98 ~%SH#WE1HC%~	
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 2 min_level = 2 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 2 match_opcode = 12 parameter1 = 1 END
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 3 min_level = 3 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 3 match_opcode = 12 parameter1 = 2 END
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 4 min_level = 4 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 4 match_opcode = 12 parameter1 = 4 END
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 5 min_level = 5 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 5 match_opcode = 12 parameter1 = 5 END
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 6 min_level = 6 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 6 match_opcode = 12 parameter1 = 6 END
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 7 min_level = 7 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 7 match_opcode = 12 parameter1 = 7 END
+	WRITE_SHORT   0x98 ~%SH#WE1HC%~
+
+COPY_EXISTING ~SH#WE1HC.spl~ ~override/SH#WE1HD.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 1 END
+COPY_EXISTING ~SH#WE1HC.spl~ ~override/SH#WE1HE.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 2 END
+COPY_EXISTING ~SH#WE1HC.spl~ ~override/SH#WE1HF.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 4 END
+COPY_EXISTING ~SH#WE1HC.spl~ ~override/SH#WE1HG.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 5 END
+COPY_EXISTING ~SH#WE1HC.spl~ ~override/SH#WE1HH.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 6 END
+COPY_EXISTING ~SH#WE1HC.spl~ ~override/SH#WE1HI.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 7 END
 
 COPY ~%MOD_FOLDER%/spl/SH#WE2HC.spl~ ~override~
 	SAY NAME1 @25	//»ØÐýÕ¶
 	SAY UNIDENTIFIED_DESC @25
 	WRITE_SHORT   0x98 ~%SH#WE2HC%~
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 2 min_level = 2 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 2 match_opcode = 12 parameter1 = 1 END
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 3 min_level = 3 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 3 match_opcode = 12 parameter1 = 3 END
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 4 min_level = 4 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 4 match_opcode = 12 parameter1 = 6 END
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 5 min_level = 5 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 5 match_opcode = 12 parameter1 = 8 END
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 6 min_level = 6 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 6 match_opcode = 12 parameter1 = 9 END
-	LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-	LPF ALTER_SPELL_HEADER INT_VAR header = 7 min_level = 7 END
-	LPF ALTER_SPELL_EFFECT INT_VAR header = 7 match_opcode = 12 parameter1 = 11 END
+
+COPY_EXISTING ~SH#WE2HC.spl~ ~override/SH#WE2HD.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 1 END
+COPY_EXISTING ~SH#WE2HC.spl~ ~override/SH#WE2HE.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 3 END
+COPY_EXISTING ~SH#WE2HC.spl~ ~override/SH#WE2HF.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 6 END
+COPY_EXISTING ~SH#WE2HC.spl~ ~override/SH#WE2HG.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 8 END
+COPY_EXISTING ~SH#WE2HC.spl~ ~override/SH#WE2HH.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 9 END
+COPY_EXISTING ~SH#WE2HC.spl~ ~override/SH#WE2HI.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode =12 parameter1 = 11 END
 
 COPY ~%MOD_FOLDER%/spl/SH#WM1HC.spl~ ~override~
 	SAY NAME1 @26	//´¸»÷
-	SAY UNIDENTIFIED_DESC @25
+	SAY UNIDENTIFIED_DESC @26
 	FOR (headernum = 2 ; headernum < 12 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
 		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (5 * (headernum - 1)) END
@@ -221,7 +199,7 @@ COPY ~%MOD_FOLDER%/spl/SH#WM1HC.spl~ ~override~
 
 COPY ~%MOD_FOLDER%/spl/SH#WM2HC.spl~ ~override~
 	SAY NAME1 @26	//´¸»÷
-	SAY UNIDENTIFIED_DESC @25
+	SAY UNIDENTIFIED_DESC @26
 	FOR (headernum = 2 ; headernum < 12 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
 		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (5 * (headernum - 1)) END

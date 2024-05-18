@@ -86,6 +86,7 @@ Hostile monk gains a trip attack per round, which acts the same as trip attack o
 
 V 0.5
 Fixed the problem that component 4 did not work. Now component 4 also allows friendly creatures to gain similar abilities. 
+Range of Cleave was a bit too large and has now been reduced, and the AOE is changed to take the attacker as the center.
 Creatures will not cast Shield Bash under special conditions such as invisibility, singing, disability, etc. 
 Fixed a problem that damage of Shield Bash failed to increase with strength. 
 Shield Bash now shows "A Shield Bash B" instead of "B Bashed by shield" .

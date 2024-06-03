@@ -1,5 +1,6 @@
 ﻿Rebalance for Two-Handed Weapon Style, Sword and Shield Style, Single-Weapon Style and Two-Weapon Style, in order that all Weapon Styles are useful.
 All ajustments take effect only in combat, not in peacetime.
+You can click the mode switch button on the protagonist's skill bar to activate the mechanism or not. The button is obtained in the first battle. 
 One glitch: After a battle, the time to save the game may be delayed for a few seconds.
 
 ///////////Compatibility////////////
@@ -9,6 +10,15 @@ This MOD doesn't modify any of the original game data, it only temporarily adds 
 ///////////Components///////////
 
 ①Rebalance for Weapon Styles
+
+You can click the mode switch button on the protagonist's skill bar to chooce modification modes. The button is automatically obtained in the first battle. 
+Mode 1 (by default): turns on all effects, for both allies and foes. 
+Mode 2: turn off Detailed ajustments for weapons and retains Modification of Weapon Styles, for both allies and foes. 
+Mode 3: turn on all effects, valid only for teammates. 
+Mode 4: turn off Detailed ajustments for weapons and retains Modification of Weapon Styles, valid only for teammates. 
+Mode 0: turn off all effects.
+
+Modification of Weapon Styles:
 
 [Single-Weapon Style]
 1 Slot: +2 to attack speed, one special attack in each round for tripping your enemy, grappling him temporarily or flipping him to the floor. 
@@ -39,13 +49,7 @@ A hasted character can cast sudden strike and shield bash twice in one round.
 One special attack in each round for tripping your enemy. When the monk has something in his hand, his special attack works as a tripping of rank 1 Single-Weapon Style. While nothing in hand, it works as a tripping of rank 2 Single-Weapon Style.
 
 
-②More proficiency points can be spent to all Weapon Styles
-
-When each Weapon Style reaches rank 2, it automaticly decreases to rank 1 in exchange for +1 bonus to melee damage, melee AC, tohit and attack speed. There's no more decline when it reaches rank 2 again.
-When Two-Weapon Style reaches rank 3, it decreases to rank 2. When it reaches rank 3 again (5 points invested totally), the penalty of -1/2 attack per round no longer exists.
-
-
-③Detailed ajustments for different weapons
+Detailed ajustments for weapons:
 
 If you have an one-handed light weapon (dagger, short sword, wakizashi, etc., or with bare hands) in one hand with another hand unarmed, your dexterity modifier is added to THAC0 (the bonus is 1, 2, 3, 4, 5 when dexterity reaches 16, 17, 19, 21, 24); if the other hand is armed, there is no dexterity modifier, but +1 bonus to melee AC and off-hand THAC0. 
 If you're using a two-handed light weapon (spear, staff), you gets +1 bonus to melee AC and THAC0.
@@ -68,26 +72,41 @@ If you're using an two-handed spear, you get +2 to damage.
 For the special attacks above that require save vs. breath, the enemy can make save with a +4 bonus, and with -1 save penalty for every 5 levels of the attacker.
 
 
-④Similar benefits for allies and enemies
 
-Allies and enemies also obtain some abilities: 
+Allies and foes also obtain similar Modification of Weapon Styles:
 
 Creatures of warrior classes that hold spears, staves or halberds are treated to be rank 2 in Two-Handed Weapon Style, for non-warrior classes they're treated to be rank 1.
 Creatures of warrior classes that hold shields are treated to be rank 2 in Sword and Shield Style, for non-warrior classes they're treated to be rank 1.
 Creatures of warrior classes without shields in hands obtain +1/2 attack per round.
 Monks obtain a trip attack per round, which acts the same as trip attack of rank 2 Single-Weapon Style.
 
-More abilities for allies and enemies with component ③ installed: 
+Allies and foes also obtain similar Detailed ajustments for weapons:
 
 Creatures with one-handed light weapons gain dexterity modifier on THAC0; Creatures with two-handed light weapons gain +1 bonus to melee AC and THAC0.
 Creatures without shields in hands who equip long-edged weapons, bludgeon weapons, or weapons with tripping property, can also cast cleave, mighty blow and hook attacks respectively. Such special attacks are switched to two-handed version whe their strengths are over 18.
 
 
+
+②More proficiency points can be spent to all Weapon Styles
+
+When each Weapon Style reaches rank 2, it automaticly decreases to rank 1 ( in battle ) in exchange for +1 bonus to melee damage, melee AC, tohit and attack speed. There's no more decline when it reaches rank 2 again.
+When Two-Weapon Style reaches rank 3, it decreases to rank 2 ( in battle ). When it reaches rank 3 again (5 points invested totally), the penalty of -1/2 attack per round no longer exists.
+
+
 ///////////Version History///////////
+
+V 0.7
+Added a mode switch button to the protagonist's skill bar to chooce modification modes.
+Components 'Detailed ajustments for different weapons' and 'Similar benefits for allies and enemies' are merged into 'Rebalance for Weapon Styles'.
+
+V 0.6
+Fixed the problem that Cleave hurts allies. 
+Adjustment of Cleave's range. 
+Tried again to reduce waiting time before saving the game. 
+Increase the sprint speed of the character when casting Shield Bash.
 
 V 0.5
 Fixed the problem that component 4 did not work. Now component 4 also allows friendly creatures to gain similar abilities. 
-Range of Cleave was a bit too large and has now been reduced, and the AOE is changed to take the attacker as the center.
 Creatures will not cast Shield Bash under special conditions such as invisibility, singing, disability, etc. 
 Fixed a problem that damage of Shield Bash failed to increase with strength. 
 Shield Bash now shows "A Shield Bash B" instead of "B Bashed by shield" .

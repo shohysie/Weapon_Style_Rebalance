@@ -1,6 +1,24 @@
 IF
+	Global("SH#WPROP","GLOBAL",0)
 	!CombatCounter(0)
+THEN
+	RESPONSE #100
+		ClearActions(Player1)
+		ReallyForceSpellRes("SH#WPRO1",Player1)
+		Continue()
+END
+
+IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("SH#WPROC","GLOBAL")
+	!CombatCounter(0)
+	OR(6)
+		TriggerOverride(Player1,See([EVILCUTOFF]))
+		TriggerOverride(Player2,See([EVILCUTOFF]))
+		TriggerOverride(Player3,See([EVILCUTOFF]))
+		TriggerOverride(Player4,See([EVILCUTOFF]))
+		TriggerOverride(Player5,See([EVILCUTOFF]))
+		TriggerOverride(Player6,See([EVILCUTOFF]))
 THEN
 	RESPONSE #100
 		SetGlobalTimer("SH#WPROC","GLOBAL",6)

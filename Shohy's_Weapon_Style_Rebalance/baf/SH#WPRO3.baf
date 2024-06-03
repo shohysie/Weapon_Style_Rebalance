@@ -2,6 +2,9 @@
 
 //右手对鸟无效为双手武器
 IF
+	OR(2)
+		Global("SH#WPROP","GLOBAL",2)
+		Global("SH#WPROP","GLOBAL",4)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
@@ -14,6 +17,9 @@ END
 
 //左右手都对鸟有效为双武器
 IF
+	OR(2)
+		Global("SH#WPROP","GLOBAL",2)
+		Global("SH#WPROP","GLOBAL",4)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
@@ -27,6 +33,9 @@ END
 
 //右手对鸟有效同时左手对鸟无效是剑盾或单手
 IF
+	OR(2)
+		Global("SH#WPROP","GLOBAL",2)
+		Global("SH#WPROP","GLOBAL",4)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
 	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))

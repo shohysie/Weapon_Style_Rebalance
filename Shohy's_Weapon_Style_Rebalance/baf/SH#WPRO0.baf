@@ -1,8 +1,20 @@
 //£®ƒÒ√‚“ﬂÀ´ ÷Œ‰∆˜£©
 IF
 	OR(2)
-		GlobalTimerExpired("EXISTIME","LOCALS")
 		CombatCounter(0)
+		GlobalTimerExpired("EXISTIME","LOCALS")
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	!TriggerOverride(Player1,See([EVILCUTOFF]))
+	!TriggerOverride(Player2,See([EVILCUTOFF]))
+	!TriggerOverride(Player3,See([EVILCUTOFF]))
+	!TriggerOverride(Player4,See([EVILCUTOFF]))
+	!TriggerOverride(Player5,See([EVILCUTOFF]))
+	!TriggerOverride(Player6,See([EVILCUTOFF]))
 THEN
 	RESPONSE #100
 		DestroySelf()

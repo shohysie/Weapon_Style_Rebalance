@@ -13,3 +13,23 @@
 @34 = "Rebalance for Weapon Styles: Two-Handed Weapon Style decreases from rank 2 to 1 in exchange for bonus in battle. Invest one more point to reach rank 2 normally."
 @35 = "Rebalance for Weapon Styles: Sword and Shield Style decreases from rank 2 to 1 in exchange for bonus in battle. Invest one more point to reach rank 2 normally."
 @36 = "Rebalance for Weapon Styles: Single-Weapon decreases from rank 2 to 1 in exchange for bonus in battle. Invest one more point to reach rank 2 normally."
+
+@41 = "Rebalance for Weapon Styles: Switch to mode 0"
+@51 = "Switched to mode 0: turn off all effects."
+@61 = "Current mode 4: modification of Weapon Styles only, for teammates only. Click to switch to mode 0: turn off all effects."
+	
+@42 = "Rebalance for Weapon Styles: Switch to mode 1"
+@52 = "Switched to mode 1: turn on all effects, for both allies and foes."
+@62 = "Current mode 0: turn off all effects. Click to switch to mode 1: turn on all effects, for both allies and foes."
+	
+@43 = "Rebalance for Weapon Styles: Switch to mode 2"
+@53 = "Switched to mode 2: modification of Weapon Styles only, for both allies and foes."
+@63 = "Current mode 1: turn on all effects, for both allies and foes. Click to switch to mode 2: modification of Weapon Styles only, for both allies and foes."
+	
+@44 = "Rebalance for Weapon Styles: Switch to mode 3"
+@54 = "Switched to mode 3: turn on all effects, valid only for teammates."
+@64 = "Current mode 2: modification of Weapon Styles only, for both allies and foes. Click to switch to mode 3: turn on all effects, valid only for teammates."
+	
+@45 = "Rebalance for Weapon Styles: Switch to mode 4"
+@55 = "Switched to mode 4: modification of Weapon Styles only, for teammates only."
+@65 = "Current mode 3: turn on all effects, valid only for teammates. Click to switch to mode 4: modification of Weapon Styles only, for teammates only."

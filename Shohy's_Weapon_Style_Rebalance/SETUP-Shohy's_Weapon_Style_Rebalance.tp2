@@ -1,7 +1,7 @@
 BACKUP ~Shohy's_Weapon_Style_Rebalance/backup~
 AUTHOR ~shohy@126.com~
 
-VERSION ~v0.7~
+VERSION ~v0.8~
 AUTO_EVAL_STRINGS
 
 README ~%MOD_FOLDER%/README.%LANGUAGE%.txt~
@@ -28,13 +28,18 @@ COPY ~%MOD_FOLDER%/spl/noname~ ~override~
 COPY ~%MOD_FOLDER%/spl/SH#WP1HC.spl~ ~override~
 	SAY NAME1 @21	//绊摔
 	SAY UNIDENTIFIED_DESC @21
-	FOR (headernum = 2 ; headernum < 12 ; ++headernum) BEGIN
+	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (5 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 185 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (5 - headernum) END
+		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 54 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 126 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 146 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 185 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (6 - headernum) END
+
+
 	END
 
 COPY_EXISTING ~SH#WP1HC.spl~ ~override/SH#WP1HD.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 324 STR_VAR resource = "SH#WP1HD" END	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 parameter1 = 17 STR_VAR resource = "SH#WP1HD" END
@@ -42,22 +47,21 @@ COPY_EXISTING ~SH#WP1HC.spl~ ~override/SH#WP1HE.spl~	LPF ALTER_SPELL_EFFECT INT_
 COPY_EXISTING ~SH#WP1HC.spl~ ~override/SH#WP1HF.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 324 STR_VAR resource = "SH#WP1HF" END	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 parameter1 = 23 STR_VAR resource = "SH#WP1HF" END
 COPY_EXISTING ~SH#WP1HC.spl~ ~override/SH#WP1HG.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 324 STR_VAR resource = "SH#WP1HG" END	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 target = 0 END
 
-COPY_EXISTING ~SH#WP1HC.spl~ ~override~ ~SH#WP1HD.spl~ ~override~ ~SH#WP1HE.spl~ ~override~ ~SH#WP1HF.spl~ ~override~ ~SH#WP1HG.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 9 timing = 0 duration = 2 parameter1 = 32768 parameter2 = 138 STR_VAR resource = "SH#WP1HA" END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 9 timing = 0 duration = 5 parameter1 = 32768 parameter2 = 139 STR_VAR resource = "SH#WP1HA" END
-
 COPY ~%MOD_FOLDER%/spl/SH#WP1HH.spl~ ~override~
 	SAY NAME1 @21	//绊摔
 	SAY UNIDENTIFIED_DESC @21
-	FOR (headernum = 2 ; headernum < 12 ; ++headernum) BEGIN
+	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (5 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 165 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 326 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (5 - headernum) END
+		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 54 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 126 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 146 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 165 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 326 savebonus = (6 - headernum) END
 	END
 
 COPY_EXISTING ~SH#WP1HH.spl~ ~override/SH#WP1HI.spl~ LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 324 STR_VAR resource = "SH#WP1HI" END	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 parameter1 = 17 STR_VAR resource = "SH#WP1HI" END
@@ -65,9 +69,8 @@ COPY_EXISTING ~SH#WP1HH.spl~ ~override/SH#WP1HJ.spl~ LPF ALTER_SPELL_EFFECT INT_
 COPY_EXISTING ~SH#WP1HH.spl~ ~override/SH#WP1HK.spl~ LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 324 STR_VAR resource = "SH#WP1HK" END	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 parameter1 = 23 STR_VAR resource = "SH#WP1HK" END
 COPY_EXISTING ~SH#WP1HH.spl~ ~override/SH#WP1HL.spl~ LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 324 STR_VAR resource = "SH#WP1HL" END	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 target = 0 END
 
-COPY_EXISTING ~SH#WP1HH.spl~ ~override~ ~SH#WP1HI.spl~ ~override~ ~SH#WP1HJ.spl~ ~override~ ~SH#WP1HK.spl~ ~override~ ~SH#WP1HL.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 9 timing = 0 duration = 2 parameter1 = 32768 parameter2 = 138 STR_VAR resource = "SH#WP1HB" END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 9 timing = 0 duration = 5 parameter1 = 32768 parameter2 = 139 STR_VAR resource = "SH#WP1HB" END
+COPY_EXISTING ~SH#WP1HC.spl~ ~override~ ~SH#WP1HD.spl~ ~override~ ~SH#WP1HE.spl~ ~override~ ~SH#WP1HF.spl~ ~override~ ~SH#WP1HG.spl~ ~override~ ~SH#WP1HH.spl~ ~override~ ~SH#WP1HI.spl~ ~override~ ~SH#WP1HJ.spl~ ~override~ ~SH#WP1HK.spl~ ~override~ ~SH#WP1HL.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 2 parameter2 = 1 STR_VAR resource = "SH#WP1HX" END
 
 COPY ~%MOD_FOLDER%/spl/SH#WTRIP.spl~ ~override~
 	SAY NAME1 @22	//卸除武器
@@ -78,19 +81,19 @@ COPY ~%MOD_FOLDER%/spl/SH#WPSDE.spl~ ~override~
 
 COPY ~%MOD_FOLDER%/spl/SH#WPSDF.spl~ ~override~
 	SAY NAME1 @24	//盾击
-	FOR (headernum = 2 ; headernum < 12 ; ++headernum) BEGIN
+	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (5 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (5 - headernum) END
+		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (6 - headernum) END
 	END
 
 COPY ~%MOD_FOLDER%/spl/SH#WPSDH.spl~ ~override~	//随人物等级以不同豁免，以等级1调用SH#WPSDO（伤害档次0）
 	WRITE_SHORT 0x98 ~%SH#WPSDA%~
-	FOR (headernum = 2 ; headernum < 12 ; ++headernum) BEGIN
+	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (5 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 146 savebonus = (5 - headernum) END
+		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 146 savebonus = (6 - headernum) END
 	END
 //以等级2~7调用SH#WPSDO（伤害档次不同）
 COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDI.spl~ LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 146 parameter1 = 2 END
@@ -171,36 +174,36 @@ COPY_EXISTING ~SH#WE2HC.spl~ ~override/SH#WE2HI.spl~	LPF ALTER_SPELL_EFFECT INT_
 
 COPY ~%MOD_FOLDER%/spl/SH#WM1HC.spl~ ~override~
 	SAY NAME1 @26	//锤击
-	FOR (headernum = 2 ; headernum < 12 ; ++headernum) BEGIN
+	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (5 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (5 - headernum) END
+		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (6 - headernum) END
 	END
 
 COPY ~%MOD_FOLDER%/spl/SH#WM2HC.spl~ ~override~
 	SAY NAME1 @26	//锤击
-	FOR (headernum = 2 ; headernum < 12 ; ++headernum) BEGIN
+	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (5 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 165 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (5 - headernum) END
+		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (6 - headernum) END
 	END
 
-COPY ~%MOD_FOLDER%/spl/SH#WH1HC.spl~ ~override~
+COPY ~%MOD_FOLDER%/spl/SH#WH1HC.spl~ ~override~ ~%MOD_FOLDER%/spl/SH#WH2HC.spl~ ~override~
 	SAY NAME1 @27	//勾拽
-	SAY UNIDENTIFIED_DESC @28
-	READ_SHORT 0x50 ~unbalance~
-	FOR (headernum = 2 ; headernum < 12 ; ++headernum) BEGIN
+	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 139 parameter1 = RESOLVE_STR_REF(@28) END
+
+COPY_EXISTING ~SH#WH1HC.spl~ ~override~
+	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (5 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 54 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 139 savebonus = (5 - headernum) parameter1 = ~unbalance~ END
+		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 54 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 139 savebonus = (6 - headernum) END
 	END
 
 COPY_EXISTING ~SH#WH1HC.spl~ ~override/SH#WH1HD.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 parameter1 = 17 STR_VAR resource = "SH#WH1HD" END
@@ -212,19 +215,17 @@ COPY_EXISTING ~SH#WH1HC.spl~ ~override~ ~SH#WH1HD.spl~ ~override~ ~SH#WH1HE.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 9 timing = 0 duration = 2 parameter1 = 32768 parameter2 = 138 STR_VAR resource = "SH#WP1HB" END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 9 timing = 0 duration = 5 parameter1 = 32768 parameter2 = 139 STR_VAR resource = "SH#WP1HB" END
 
-COPY ~%MOD_FOLDER%/spl/SH#WH2HC.spl~ ~override~	//DONE
-	SAY NAME1 @27	//勾拽
-	FOR (headernum = 2 ; headernum < 12 ; ++headernum) BEGIN
+COPY_EXISTING ~SH#WH2HC.spl~ ~override~
+	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
-		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (5 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 165 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 326 savebonus = (5 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 139 savebonus = (5 - headernum) parameter1 = ~unbalance~ END
+		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 326 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 139 savebonus = (6 - headernum) END
 	END
 	
 COPY_EXISTING ~SH#WH2HC.spl~ ~override/SH#WH2HD.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 parameter1 = 17 STR_VAR resource = "SH#WH2HD" END

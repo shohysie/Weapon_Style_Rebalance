@@ -1,0 +1,27 @@
+//武器流派扣掉1星后，如果关闭会返还。单独召唤一只鸟来对话。变成鸟的脚本SH#WPROD.baf
+
+//PROFBACK是0，未处理，开启对话
+IF
+	!GlobalGT("PROFBACK","LOCALS",0)
+THEN
+	RESPONSE #100
+		StartDialogNoName("SH#WPROD",Player1)
+END
+//对话选择处理会让PROFBACK变1，不选择处理则直接消失
+
+//处理完毕，消失
+IF
+	GlobalGT("PROFBACK","LOCALS",1)
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+//PROFBACK为1，后继附加脚本会进行处理并让PROFBACK变2，没有能处理的就保留为3
+IF
+	Global("PROFBACK","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("PROFBACK","LOCALS",3)
+		Continue()
+END

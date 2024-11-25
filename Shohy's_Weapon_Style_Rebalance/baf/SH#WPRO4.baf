@@ -1,0 +1,17 @@
+//属性额外调整，每只鸟只进行一次，加入到SH#WPROC.baf
+
+//只对每个队员施法一次，范围含队员和附近敌人，持续6秒
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalGT("WPENEMY","LOCALS",0)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPA00",Player1)
+		ReallyForceSpellRes("SH#WPA00",Player2)
+		ReallyForceSpellRes("SH#WPA00",Player3)
+		ReallyForceSpellRes("SH#WPA00",Player4)
+		ReallyForceSpellRes("SH#WPA00",Player5)
+		ReallyForceSpellRes("SH#WPA00",Player6)
+		SetGlobal("WPENEMY","LOCALS",1)
+		Continue()
+END

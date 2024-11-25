@@ -1,0 +1,17 @@
+//属性额外调整，加入到全局脚本
+
+//只对每个队员施法一次，范围含队员和附近敌人，持续2轮
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalTimerNotExpired("SH#WPROE","GLOBAL")
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPA00",Player1)
+		ReallyForceSpellRes("SH#WPA00",Player2)
+		ReallyForceSpellRes("SH#WPA00",Player3)
+		ReallyForceSpellRes("SH#WPA00",Player4)
+		ReallyForceSpellRes("SH#WPA00",Player5)
+		ReallyForceSpellRes("SH#WPA00",Player6)
+		SetGlobalTimer("SH#WPROE","GLOBAL",12)
+		Continue()
+END

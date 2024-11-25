@@ -1,0 +1,44 @@
+//SOLO时，鸟SH#WPROB.cre（鸟B）在某些地图不会产生，必须在主角身上附加每轮召唤新的鸟SH#WPROA.cre（鸟A），种族为鸟，脚本同B
+//此脚本补充到SH#WPROA.bcs最前
+
+//鸟B消失时判断自己不是鸟A，给主角施加法术SH#WPROB，内容为遇敌每轮对自己施展SH#WPROA（包括法术和eff）召唤鸟A
+IF
+	!Race(Myself,BIRD)
+	OR(2)
+		GlobalGT("WPTOTAL","LOCALS",5)
+		GlobalTimerExpired("SH#WPROC","GLOBAL")
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPROB",Player1)
+		DestroySelf()
+END
+
+IF
+	!Race(Myself,BIRD)
+	!Detect([EVILCUTOFF])
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPROB",Player1)
+		SetGlobalTimer("SH#WPROC","GLOBAL",0)
+		DestroySelf()
+END
+
+//鸟B产生时判断自己不是鸟A，给主角施加法术SH#WPROC移除SH#WPROB，避免正常地图召唤
+IF
+	OnCreation()
+	!Race(Myself,BIRD)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPROC",Player1)
+		Continue()
+END
+
+//鸟A发现鸟B，消失
+IF
+	Race(Myself,BIRD)
+	Exists("SH#WPROB")
+THEN
+	RESPONSE #100
+		DestroySelf()
+END

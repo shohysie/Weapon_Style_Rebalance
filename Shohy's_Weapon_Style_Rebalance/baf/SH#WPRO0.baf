@@ -1,29 +1,146 @@
-//��������˫��������
+//SOLO时，鸟SH#WPROB.cre（鸟B）在某些地图不会产生，必须在主角身上附加每轮召唤新的鸟SH#WPROA.cre（鸟A），种族为鸟，脚本同B
+
+//鸟B在工作完成后消失，给主角施加法术SH#WPROB，内容为遇敌每轮对自己施展SH#WPROA（包括法术和eff）召唤鸟A
 IF
+	!Race(Myself,BIRD)
 	OR(2)
-		CombatCounter(0)
-		GlobalTimerExpired("EXISTIME","LOCALS")
+		GlobalGT("WPTOTAL","LOCALS",5)
+		GlobalTimerExpired("SH#WPROC","GLOBAL")
 THEN
 	RESPONSE #100
+		ReallyForceSpellRes("SH#WPROB",Player1)
 		DestroySelf()
 END
-
+//鸟B在功能关闭时消失，给主角施加法术SH#WPROC移除SH#WPROB避免召唤鸟A
 IF
-	!TriggerOverride(Player1,See([EVILCUTOFF]))
-	!TriggerOverride(Player2,See([EVILCUTOFF]))
-	!TriggerOverride(Player3,See([EVILCUTOFF]))
-	!TriggerOverride(Player4,See([EVILCUTOFF]))
-	!TriggerOverride(Player5,See([EVILCUTOFF]))
-	!TriggerOverride(Player6,See([EVILCUTOFF]))
+	!Race(Myself,BIRD)
+	Global("SH#WPROP","GLOBAL",1)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPROC",Player1)
+		DestroySelf()
+END
+//鸟A工作完成或功能关闭或看到鸟B就直接消失，不影响主角身上的附加法术
+IF
+	Race(Myself,BIRD)
+	OR(3)
+		Exists("SH#WPROB")
+		Global("SH#WPROP","GLOBAL",1)
+		GlobalGT("WPTOTAL","LOCALS",5)
 THEN
 	RESPONSE #100
 		DestroySelf()
 END
 
+//鸟B产生时，重置全局计时器，并给主角施加法术SH#WPROC移除SH#WPROB，避免正常地图召唤鸟A（鸟A不需要全局计时）
 IF
 	OnCreation()
+	!Race(Myself,BIRD)
 THEN
 	RESPONSE #100
-		SetGlobalTimer("EXISTIME","LOCALS",6)
+		ReallyForceSpellRes("SH#WPROC",Player1)
+		SetGlobalTimer("SH#WPROC","GLOBAL",6)
+		Continue()
+END
+
+//跟随以及每秒计数
+IF
+	OnScreen(Player1)
+	!InMyArea(Player1)
+THEN
+	RESPONSE #100
+		CreateCreatureObject("SH#WPROB",Player1,0,0,0)
+		DestroySelf()
+END
+
+IF
+	OnScreen(Player2)
+	!InMyArea(Player2)
+	!OnScreen(Player1)
+THEN
+	RESPONSE #100
+		CreateCreatureObject("SH#WPROB",Player2,0,0,0)
+		DestroySelf()
+END
+
+IF
+	OnScreen(Player3)
+	!InMyArea(Player3)
+	!OnScreen(Player1)
+	!OnScreen(Player2)
+THEN
+	RESPONSE #100
+		CreateCreatureObject("SH#WPROB",Player3,0,0,0)
+		DestroySelf()
+END
+
+IF
+	OnScreen(Player4)
+	!InMyArea(Player4)
+	!OnScreen(Player1)
+	!OnScreen(Player2)
+	!OnScreen(Player3)
+THEN
+	RESPONSE #100
+		CreateCreatureObject("SH#WPROB",Player4,0,0,0)
+		DestroySelf()
+END
+
+IF
+	OnScreen(Player5)
+	!InMyArea(Player5)
+	!OnScreen(Player1)
+	!OnScreen(Player2)
+	!OnScreen(Player3)
+	!OnScreen(Player4)
+THEN
+	RESPONSE #100
+		CreateCreatureObject("SH#WPROB",Player5,0,0,0)
+		DestroySelf()
+END
+
+IF
+	OnScreen(Player6)
+	!InMyArea(Player6)
+	!OnScreen(Player1)
+	!OnScreen(Player2)
+	!OnScreen(Player3)
+	!OnScreen(Player4)
+	!OnScreen(Player5)
+THEN
+	RESPONSE #100
+		CreateCreatureObject("SH#WPROB",Player6,0,0,0)
+		DestroySelf()
+END
+
+//鸟B在没有敌人时消失，重置全局计时，并给主角施加法术SH#WPROB每轮召唤鸟A
+IF
+	!Race(Myself,BIRD)
+	!Detect([EVILCUTOFF])
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPROB",Player1)
+		SetGlobalTimer("SH#WPROC","GLOBAL",0)
+		DestroySelf()
+END
+//鸟A在没有敌人时消失，只重置全局计时，不影响主角身上的附加法术
+IF
+	Race(Myself,BIRD)
+	!Detect([EVILCUTOFF])
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("SH#WPROC","GLOBAL",0)
+		DestroySelf()
+END
+
+//每秒计数，下接每秒具体施法
+IF
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		IncrementGlobal("WPTOTAL","LOCALS",1)
 		Continue()
 END

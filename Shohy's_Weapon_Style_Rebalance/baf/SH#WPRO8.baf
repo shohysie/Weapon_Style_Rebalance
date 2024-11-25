@@ -1,0 +1,65 @@
+//武器流派扣掉1星后，如果关闭会返还。单独召唤一只鸟来对话。批量加到SH#WPROD.baf之后
+
+//双武器2星且局部变量SH#WP2WS不为0，返还为3星
+IF
+	Global("PROFBACK","LOCALS",1)
+	Proficiency(Player%n%,PROFICIENCY2WEAPON,2)
+	!TriggerOverride(Player%n%,Global("SH#WP2WS","LOCALS",0))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WP2WU",Player%n%)	//设为3星并让局部变量SH#WP2WS变0
+		DisplayStringHead(Player%n%,@76)	//提示返还
+		SetGlobal("PROFBACK","LOCALS",2)
+		Continue()
+END
+//双武器1星且局部变量SH#WP2WS不为0，返还为2星
+IF
+	Global("PROFBACK","LOCALS",1)
+	Proficiency(Player%n%,PROFICIENCY2WEAPON,1)
+	!TriggerOverride(Player%n%,Global("SH#WP2WS","LOCALS",0))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WP2WV",Player%n%)	//设为2星并让局部变量SH#WP2WS变0
+		DisplayStringHead(Player%n%,@76)	//提示返还
+		SetGlobal("PROFBACK","LOCALS",2)
+		Continue()
+END
+
+//双手武器1星且局部变量SH#WP2HS不为0，返还为2星
+IF
+	Global("PROFBACK","LOCALS",1)
+	Proficiency(Player%n%,PROFICIENCY2HANDED,1)
+	!TriggerOverride(Player%n%,Global("SH#WP2HS","LOCALS",0))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WP2HU",Player%n%)	//设为2星并让局部变量SH#WP2HS变0
+		DisplayStringHead(Player%n%,@77)	//提示扣星
+		SetGlobal("PROFBACK","LOCALS",2)
+		Continue()
+END
+
+//剑盾1星且局部变量SH#WPSDS不为0，返还为2星
+IF
+	Global("PROFBACK","LOCALS",1)
+	Proficiency(Player%n%,PROFICIENCYSWORDANDSHIELD,1)
+	!TriggerOverride(Player%n%,Global("SH#WPSDS","LOCALS",0))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPSDU",Player%n%)	//设为2星并让局部变量SH#WPSDS变0
+		DisplayStringHead(Player%n%,@78)	//提示扣星
+		SetGlobal("PROFBACK","LOCALS",2)
+		Continue()
+END
+
+//单手1星且局部变量SH#WP1HS不为0，返还为2星
+IF
+	Global("PROFBACK","LOCALS",1)
+	Proficiency(Player%n%,PROFICIENCYSINGLEWEAPON,1)
+	!TriggerOverride(Player%n%,Global("SH#WP1HS","LOCALS",0))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WP1HU",Player%n%)	//设为2星并让局部变量SH#WP1HS变0
+		DisplayStringHead(Player%n%,@79)	//提示扣星
+		SetGlobal("PROFBACK","LOCALS",2)
+		Continue()
+END

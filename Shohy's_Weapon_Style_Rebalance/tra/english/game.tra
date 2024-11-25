@@ -7,12 +7,12 @@
 @27 = "Hook attack"
 @28 = "Loses balance"
 
-@31 = "Rebalance for Weapon Styles: Two-Weapon Style decreases from rank 3 to 2 in exchange for bonus in battle. One more decline when reaches rank 3 again."
-@32 = "Rebalance for Weapon Styles: Two-Weapon Style decreases from rank 2 to 1 in exchange for bonus in battle. Invest one more point to reach rank 2 normally."
-@33 = "Rebalance for Weapon Styles: Two-Weapon Style decreases from rank 3 to 2. Invest one more point to reach rank 3 normally and remove the penalty of APR."
-@34 = "Rebalance for Weapon Styles: Two-Handed Weapon Style decreases from rank 2 to 1 in exchange for bonus in battle. Invest one more point to reach rank 2 normally."
-@35 = "Rebalance for Weapon Styles: Sword and Shield Style decreases from rank 2 to 1 in exchange for bonus in battle. Invest one more point to reach rank 2 normally."
-@36 = "Rebalance for Weapon Styles: Single-Weapon decreases from rank 2 to 1 in exchange for bonus in battle. Invest one more point to reach rank 2 normally."
+@31 = "Rebalance for Weapon Styles: Two-Weapon Style decreases from rank 3 to 2 in exchange for bonus in battle. One more decline when reaches rank 3 again. Can be closed by the protagonist's special ability and get the deducted rank back."
+@32 = "Rebalance for Weapon Styles: Two-Weapon Style decreases from rank 2 to 1 in exchange for bonus in battle. Invest one more point to reach rank 2 normally. Can be closed by the protagonist's special ability and get the deducted rank back."
+@33 = "Rebalance for Weapon Styles: Two-Weapon Style decreases from rank 3 to 2. Invest one more point to reach rank 3 normally and remove the penalty of APR. Can be closed by the protagonist's special ability and get the deducted rank back."
+@34 = "Rebalance for Weapon Styles: Two-Handed Weapon Style decreases from rank 2 to 1 in exchange for bonus in battle. Invest one more point to reach rank 2 normally. Can be closed by the protagonist's special ability and get the deducted rank back."
+@35 = "Rebalance for Weapon Styles: Sword and Shield Style decreases from rank 2 to 1 in exchange for bonus in battle. Invest one more point to reach rank 2 normally. Can be closed by the protagonist's special ability and get the deducted rank back."
+@36 = "Rebalance for Weapon Styles: Single-Weapon decreases from rank 2 to 1 in exchange for bonus in battle. Invest one more point to reach rank 2 normally. Can be closed by the protagonist's special ability and get the deducted rank back."
 
 @41 = "Rebalance for Weapon Styles: Switch to mode 0"
 @51 = "Switched to mode 0: turn off all effects."
@@ -20,11 +20,11 @@
 	
 @42 = "Rebalance for Weapon Styles: Switch to mode 1"
 @52 = "Switched to mode 1: turn on all effects, for both allies and foes."
-@62 = "Current mode 0: turn off all effects. Click to switch to mode 1: turn on all effects, for both allies and foes."
-	
+@62 = "Current mode 0: turn off all effects (modification of Weapon Styles, detailed ajustments for weapon types, extra modifications of Intelligence/Wisdom/Charisma). Click to switch to mode 1: turn on all effects, for both allies and foes."
+
 @43 = "Rebalance for Weapon Styles: Switch to mode 2"
 @53 = "Switched to mode 2: modification of Weapon Styles only, for both allies and foes."
-@63 = "Current mode 1: turn on all effects, for both allies and foes. Click to switch to mode 2: modification of Weapon Styles only, for both allies and foes."
+@63 = "Current mode 1: turn on all effects (modification of Weapon Styles, detailed ajustments for weapon types, extra modifications of Intelligence/Wisdom/Charisma), for both allies and foes. Click to switch to mode 2: modification of Weapon Styles only, for both allies and foes."
 	
 @44 = "Rebalance for Weapon Styles: Switch to mode 3"
 @54 = "Switched to mode 3: turn on all effects, valid only for teammates."
@@ -33,3 +33,12 @@
 @45 = "Rebalance for Weapon Styles: Switch to mode 4"
 @55 = "Switched to mode 4: modification of Weapon Styles only, for teammates only."
 @65 = "Current mode 3: turn on all effects, valid only for teammates. Click to switch to mode 4: modification of Weapon Styles only, for teammates only."
+
+@71 = "Rebalance for Weapon Styles shut down. Do you want to refund the deducted weapon proficiency points? Only for the case that no more points are invested after deduction."
+@72 = "I don't need it right now."
+@73 = "Yes."
+
+@76 = "Rebalance for Weapon Styles: refunds one deducted Two-Weapon Style point."
+@77 = "Rebalance for Weapon Styles: refunds one deducted Two-Handed Style point."
+@78 = "Rebalance for Weapon Styles: refunds one deducted Sword and Shield Style point."
+@79 = "Rebalance for Weapon Styles: refunds one deducted Single-Weapon Style point."

@@ -1,7 +1,7 @@
 BACKUP ~Shohy's_Weapon_Style_Rebalance/backup~
 AUTHOR ~shohy@126.com~
 
-VERSION ~v0.8~
+VERSION ~v1.0~
 AUTO_EVAL_STRINGS
 
 README ~%MOD_FOLDER%/README.%LANGUAGE%.txt~
@@ -31,15 +31,13 @@ COPY ~%MOD_FOLDER%/spl/SH#WP1HC.spl~ ~override~
 	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
 		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 54 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 126 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 146 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 185 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (6 - headernum) END
-
-
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 54 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 126 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 146 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 185 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (7 - headernum) END
 	END
 
 COPY_EXISTING ~SH#WP1HC.spl~ ~override/SH#WP1HD.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 324 STR_VAR resource = "SH#WP1HD" END	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 parameter1 = 17 STR_VAR resource = "SH#WP1HD" END
@@ -53,15 +51,15 @@ COPY ~%MOD_FOLDER%/spl/SH#WP1HH.spl~ ~override~
 	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
 		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 54 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 126 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 146 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 165 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 326 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 54 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 126 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 146 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 165 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 326 savebonus = (7 - headernum) END
 	END
 
 COPY_EXISTING ~SH#WP1HH.spl~ ~override/SH#WP1HI.spl~ LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 324 STR_VAR resource = "SH#WP1HI" END	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 parameter1 = 17 STR_VAR resource = "SH#WP1HI" END
@@ -79,66 +77,33 @@ COPY ~%MOD_FOLDER%/spl/SH#WTRIP.spl~ ~override~
 COPY ~%MOD_FOLDER%/spl/SH#WPSDE.spl~ ~override~
 	WRITE_SHORT 0x98 ~%SH#WPSDA%~
 
-COPY ~%MOD_FOLDER%/spl/SH#WPSDF.spl~ ~override~
+COPY ~%MOD_FOLDER%/spl/SH#WPSDF.spl~ ~override~	//1星盾击，豁免随等级
 	SAY NAME1 @24	//盾击
 	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
 		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (7 - headernum) END
 	END
 
-COPY ~%MOD_FOLDER%/spl/SH#WPSDH.spl~ ~override~	//随人物等级以不同豁免，以等级1调用SH#WPSDO（伤害档次0）
+COPY ~%MOD_FOLDER%/spl/SH#WPSDH.spl~ ~override~	//2星盾击无豁免部分，并且随人物等级以不同豁免，以等级1调用SH#WPSDO（伤害档次0）
 	WRITE_SHORT 0x98 ~%SH#WPSDA%~
 	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
 		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 146 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 146 savebonus = (7 - headernum) END
 	END
-//以等级2~7调用SH#WPSDO（伤害档次不同）
+//2星盾击无豁免部分，以等级2~7调用SH#WPSDO（伤害档次不同）
 COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDI.spl~ LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 146 parameter1 = 2 END
 COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDJ.spl~ LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 146 parameter1 = 3 END
 COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDK.spl~ LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 146 parameter1 = 4 END
 COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDL.spl~ LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 146 parameter1 = 5 END
 COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDM.spl~ LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 146 parameter1 = 6 END
 COPY_EXISTING ~SH#WPSDH.spl~ ~override/SH#WPSDN.spl~ LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 146 parameter1 = 7 END
-
-COPY_EXISTING ~SH#WPSDH.spl~ ~override~ ~SH#WPSDI.spl~ ~override~ ~SH#WPSDJ.spl~ ~override~ ~SH#WPSDK.spl~ ~override~ ~SH#WPSDL.spl~ ~override~ ~SH#WPSDM.spl~ ~override~ ~SH#WPSDN.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 2 timing = 1 parameter2 = 1 insert_point = 0 STR_VAR resource = "SH#WPSDZ" END
 	
-COPY ~%MOD_FOLDER%/spl/SH#WPSDZ.spl~ ~override~	//仅音效，盾击效果在SH#WPSDO.spl
+COPY ~%MOD_FOLDER%/spl/SH#WPSDO.spl~ ~override~	//2星盾击有豁免部分
 	SAY NAME1 @24	//盾击
-
-COPY ~%MOD_FOLDER%/baf/SH#WPRO0.baf~ ~%MOD_FOLDER%/baf/SH#WPROA.baf~
-	FOR (n=1;n<7;++n) BEGIN
-		APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO1.baf~
-	END
-
-COMPILE ~%MOD_FOLDER%/baf/SH#WPROA.baf~
-
-COPY_EXISTING ~CAMPAIGN.2da~ ~override~
-	COUNT_2DA_ROWS 10 camprowmax	//至少10列column，row行数读入camprowmax
-	PATCH_IF camprowmax > 1 BEGIN
-		FOR (camprows = 1 ; camprows < camprowmax ; ++camprows) BEGIN
-			READ_2DA_ENTRY camprows 1 10 campscript	//WORLDSCRIPT名称
-			SET "%campscript%added" = 0
-		END
-		FOR (camprows = 1 ; camprows < camprowmax ; ++camprows) BEGIN
-			READ_2DA_ENTRY camprows 1 10 campscript	//WORLDSCRIPT名称
-				PATCH_IF "%campscript%added" = 0 BEGIN
-					INNER_ACTION BEGIN
-						EXTEND_TOP ~%campscript%.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
-					END
-					SET "%campscript%added" = 1
-				END
-		END
-	END ELSE BEGIN
-		INNER_ACTION BEGIN
-			EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
-			EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
-		END
-	END
-BUT_ONLY
 
 /* *********************武器细节调整******************* */
 ADD_PROJECTILE ~%MOD_FOLDER%/pro/SH#WE1HC.pro~
@@ -177,8 +142,9 @@ COPY ~%MOD_FOLDER%/spl/SH#WM1HC.spl~ ~override~
 	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
 		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (7 - headernum) END
 	END
 
 COPY ~%MOD_FOLDER%/spl/SH#WM2HC.spl~ ~override~
@@ -186,10 +152,11 @@ COPY ~%MOD_FOLDER%/spl/SH#WM2HC.spl~ ~override~
 	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
 		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (7 - headernum) END
 	END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 215 target = 2 timing = 0 duration = 1 parameter2 = 1 STR_VAR resource = "SH#SMITE" END
 
 COPY ~%MOD_FOLDER%/spl/SH#WH1HC.spl~ ~override~ ~%MOD_FOLDER%/spl/SH#WH2HC.spl~ ~override~
 	SAY NAME1 @27	//勾拽
@@ -199,11 +166,12 @@ COPY_EXISTING ~SH#WH1HC.spl~ ~override~
 	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
 		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 54 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 139 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 54 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 139 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (7 - headernum) END
 	END
 
 COPY_EXISTING ~SH#WH1HC.spl~ ~override/SH#WH1HD.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 parameter1 = 17 STR_VAR resource = "SH#WH1HD" END
@@ -212,6 +180,7 @@ COPY_EXISTING ~SH#WH1HC.spl~ ~override/SH#WH1HF.spl~	LPF ALTER_SPELL_EFFECT INT_
 COPY_EXISTING ~SH#WH1HC.spl~ ~override/SH#WH1HG.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 target = 0 END
 	
 COPY_EXISTING ~SH#WH1HC.spl~ ~override~ ~SH#WH1HD.spl~ ~override~ ~SH#WH1HE.spl~ ~override~ ~SH#WH1HF.spl~ ~override~ ~SH#WH1HG.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 215 target = 2 timing = 0 duration = 1 parameter2 = 1 insert_point = 12 STR_VAR resource = "SH#SMITE" END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 9 timing = 0 duration = 2 parameter1 = 32768 parameter2 = 138 STR_VAR resource = "SH#WP1HB" END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 9 timing = 0 duration = 5 parameter1 = 32768 parameter2 = 139 STR_VAR resource = "SH#WP1HB" END
 
@@ -219,13 +188,13 @@ COPY_EXISTING ~SH#WH2HC.spl~ ~override~
 	FOR (headernum = 2 ; headernum < 14 ; ++headernum) BEGIN
 		LPF ADD_SPELL_HEADER INT_VAR copy_header = 1 END
 		LPF ALTER_SPELL_HEADER INT_VAR header = headernum min_level = (4 * (headernum - 1)) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 326 savebonus = (6 - headernum) END
-		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 139 savebonus = (6 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 0 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 39 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 45 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 215 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 235 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 326 savebonus = (7 - headernum) END
+		LPF ALTER_SPELL_EFFECT INT_VAR header = headernum match_opcode = 139 savebonus = (7 - headernum) END
 	END
 	
 COPY_EXISTING ~SH#WH2HC.spl~ ~override/SH#WH2HD.spl~	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode = 318 parameter1 = 17 STR_VAR resource = "SH#WH2HD" END
@@ -237,13 +206,6 @@ COPY_EXISTING ~SH#WH2HC.spl~ ~override~ ~SH#WH2HD.spl~ ~override~ ~SH#WH2HE.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 9 timing = 0 duration = 2 parameter1 = 32768 parameter2 = 138 STR_VAR resource = "SH#WH2HB" END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 9 timing = 0 duration = 5 parameter1 = 32768 parameter2 = 139 STR_VAR resource = "SH#WH2HB" END
 
-COPY_EXISTING ~SH#WPROA.bcs~ ~override~
-	DECOMPILE_AND_PATCH BEGIN
-		FOR (n=1;n<7;++n) BEGIN
-			APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO3.baf~
-		END
-	END
-BUT_ONLY
 
 /* *********************友军和敌军也获得类似能力******************* */
 ADD_PROJECTILE ~%MOD_FOLDER%/pro/SH#WPE00.pro~
@@ -253,53 +215,308 @@ COPY ~%MOD_FOLDER%/spl/SH#WPE00.spl~ ~override~ ~%MOD_FOLDER%/spl/SH#WPE02.spl~ 
 	
 COPY ~%MOD_FOLDER%/spl/noname2~ ~override~
 COPY ~%MOD_FOLDER%/eff2/~ ~override~
-COMPILE ~%MOD_FOLDER%/baf/SH#WPROC.baf~
 
 /* *********************切换按钮******************* */
-COPY ~%MOD_FOLDER%/spl/SH#WPRO0.spl~ ~override~	//当前模式4（我方半开）SH#WPRO0=5时拥有此技能，点击设置SH#WPRO0=1切到模式0（全部关闭）
+COPY ~%MOD_FOLDER%/spl/SH#WPRO0.spl~ ~override~	//当前模式4（我方半开）SH#WPROP=5时拥有此技能，点击设置SH#WPROP=1切到模式0（全部关闭）
 	SAY NAME1 @41	//武器流派平衡：切换到模式0。
-	SAY UNIDENTIFIED_DESC @51	//切换到武器流派平衡模式0：关闭所有效果。
-	READ_SHORT 0x50 ~skilldesc~	//点击时显示上一行文字
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 2 parameter1 = skilldesc END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 2 parameter1 = RESOLVE_STR_REF(@51) END	//已经切换到武器流派平衡模式0：关闭所有效果。
 	SAY UNIDENTIFIED_DESC @61	//当前模式4：关闭武器特效，保留武器流派修正，仅我方队员有效。点击按钮可切换到模式0：关闭所有效果。
-	
-COPY ~%MOD_FOLDER%/spl/SH#WPRO1.spl~ ~override~	//当前模式0（全部关闭）SH#WPRO0=1时拥有此技能，点击设置SH#WPRO0=2切到模式1（全部开启），且初始SH#WPRO0=0时被施展此技能
+
+COPY ~%MOD_FOLDER%/spl/SH#WPRO1.spl~ ~override~	//当前模式0（全部关闭）SH#WPROP=1时拥有此技能，点击设置SH#WPROP=2切到模式1（全部开启），且初始SH#WPROP=0时被施展此技能
 	SAY NAME1 @42	//武器流派平衡：切换到模式1。
-	SAY UNIDENTIFIED_DESC @52	//切换到武器流派平衡模式1：开启所有效果，敌我均有效。
-	READ_SHORT 0x50 ~skilldesc~	//点击时显示上一行文字
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 2 parameter1 = skilldesc END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 2 parameter1 = RESOLVE_STR_REF(@52) END	//已经切换到武器流派平衡模式1：开启所有效果，敌我均有效。
 	SAY UNIDENTIFIED_DESC @62	//当前模式0：关闭所有效果。点击按钮可切换到模式1：开启所有效果，敌我均有效。
-	
-COPY ~%MOD_FOLDER%/spl/SH#WPRO2.spl~ ~override~	//当前模式1（全部开启）SH#WPRO0=2时拥有此技能，点击设置SH#WPRO0=3切到模式2（敌我半开）
+
+COPY ~%MOD_FOLDER%/spl/SH#WPRO2.spl~ ~override~	//当前模式1（全部开启）SH#WPROP=2时拥有此技能，点击设置SH#WPROP=3切到模式2（敌我半开）
 	SAY NAME1 @43	//武器流派平衡：切换到模式2。
-	SAY UNIDENTIFIED_DESC @53	//切换到武器流派平衡模式2：关闭武器特效，保留武器流派修正，敌我均有效。
-	READ_SHORT 0x50 ~skilldesc~	//点击时显示上一行文字
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 2 parameter1 = skilldesc END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 2 parameter1 = RESOLVE_STR_REF(@53) END	//已经切换到武器流派平衡模式2：关闭武器特效，保留武器流派修正，敌我均有效。
 	SAY UNIDENTIFIED_DESC @63	//当前模式1：开启所有效果，敌我均有效。点击按钮可切换到模式2：关闭武器特效，保留武器流派修正，敌我均有效。
 	
-COPY ~%MOD_FOLDER%/spl/SH#WPRO3.spl~ ~override~	//当前模式2（敌我半开）SH#WPRO0=3时拥有此技能，点击设置SH#WPRO0=4切到模式3（我方全开）
+COPY ~%MOD_FOLDER%/spl/SH#WPRO3.spl~ ~override~	//当前模式2（敌我半开）SH#WPROP=3时拥有此技能，点击设置SH#WPROP=4切到模式3（我方全开）
 	SAY NAME1 @44	//武器流派平衡：切换到模式3。
-	SAY UNIDENTIFIED_DESC @54	//切换到武器流派平衡模式3：开启所有效果，仅我方队员有效。
-	READ_SHORT 0x50 ~skilldesc~	//点击时显示上一行文字
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 2 parameter1 = skilldesc END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 2 parameter1 = RESOLVE_STR_REF(@54) END	//已经切换到武器流派平衡模式3：开启所有效果，仅我方队员有效。
 	SAY UNIDENTIFIED_DESC @64	//当前模式2：关闭武器特效，保留武器流派修正，敌我均有效。点击按钮可切换到模式3：开启所有效果，仅我方队员有效。
 	
-COPY ~%MOD_FOLDER%/spl/SH#WPRO4.spl~ ~override~	//当前模式3（我方全开）SH#WPRO0=4时拥有此技能，点击设置SH#WPRO0=5切到模式4（我方半开）
+COPY ~%MOD_FOLDER%/spl/SH#WPRO4.spl~ ~override~	//当前模式3（我方全开）SH#WPROP=4时拥有此技能，点击设置SH#WPROP=5切到模式4（我方半开）
 	SAY NAME1 @45	//武器流派平衡：切换到模式4。
-	SAY UNIDENTIFIED_DESC @55	//切换到武器流派平衡模式4：关闭武器特效，保留武器流派修正，仅我方队员有效。
-	READ_SHORT 0x50 ~skilldesc~	//点击时显示上一行文字
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 2 parameter1 = skilldesc END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 2 parameter1 = RESOLVE_STR_REF(@55) END	//已经切换到武器流派平衡模式4：关闭武器特效，保留武器流派修正，仅我方队员有效。
 	SAY UNIDENTIFIED_DESC @65	//当前模式3：开启所有效果，仅我方队员有效。点击按钮可切换到模式4：关闭武器特效，保留武器流派修正，仅我方队员有效。
 
+COPY_EXISTING ~SH#WPROB.cre~ ~override/SH#WPROA.cre~	//在主角身上附加每轮召唤新的鸟，在全局脚本不启动时作为补充
+	WRITE_BYTE 0x272 170
+	WRITE_ASCII 0x280 ~SH#WPROA~
+
+/* *********************流派和细节脚本统一处理******************* */
+COPY_EXISTING ~CAMPAIGN.2da~ ~override~
+	COUNT_2DA_ROWS 10 camprowmax	//至少10列column，row行数读入camprowmax
+	PATCH_IF camprowmax > 1 BEGIN
+		FOR (camprows = 1 ; camprows < camprowmax ; ++camprows) BEGIN
+			READ_2DA_ENTRY camprows 1 10 campscript	//WORLDSCRIPT名称
+			SET "%campscript%added" = 0
+		END
+		FOR (camprows = 1 ; camprows < camprowmax ; ++camprows) BEGIN
+			READ_2DA_ENTRY camprows 1 10 campscript	//WORLDSCRIPT名称
+				PATCH_IF "%campscript%added" = 0 BEGIN
+					INNER_ACTION BEGIN
+						EXTEND_TOP ~%campscript%.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
+					END
+					SET "%campscript%added" = 1
+				END
+		END
+	END ELSE BEGIN
+		INNER_ACTION BEGIN
+			EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
+			EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO.baf~
+		END
+	END
+BUT_ONLY
+
+COPY ~%MOD_FOLDER%/baf/SH#WPRO0.baf~ ~%MOD_FOLDER%/baf/SH#WPROA.baf~
+	FOR (n=1;n<7;++n) BEGIN
+		APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO1.baf~	//有组件2扣星模式/无组件2通用，没有扣星补偿，限PC
+		APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO3.baf~	//武器细节调整，限PC
+	END
+COMPILE ~%MOD_FOLDER%/baf/SH#WPROA.baf~
+COMPILE ~%MOD_FOLDER%/baf/SH#WPROC.baf~	//友军敌军的武器细节调整
 
 
-BEGIN @2
-REQUIRE_COMPONENT "SETUP-Shohy's_Weapon_Style_Rebalance.tp2" "0" @12
 
 /* *********************四种武器流派可投入更多星数******************* */
+
+/* *********************扣星模式，兼容性好******************* */
+BEGIN @3
+REQUIRE_COMPONENT "SETUP-Shohy's_Weapon_Style_Rebalance.tp2" "0" @12
+SUBCOMPONENT @2
+
 COPY ~%MOD_FOLDER%/baf/blank.baf~ ~%MOD_FOLDER%/baf/SH#WPROB.baf~
 	FOR (n=1;n<7;++n) BEGIN
-		APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO2.baf~
+		APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO2.baf~	//扣星
+		APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO6.baf~	//扣星换取的额外奖励
 	END
-	
 COMPILE ~%MOD_FOLDER%/baf/SH#WPROB.baf~
+
+COPY ~%MOD_FOLDER%/baf/SH#WPRO_.baf~ ~%MOD_FOLDER%/baf/SH#WPROD.baf~
+	FOR (n=1;n<7;++n) BEGIN
+		APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO8.baf~	//根据人物身上变量返还扣掉的星
+	END
+COMPILE ~%MOD_FOLDER%/baf/SH#WPROD.baf~
+COMPILE ~%MOD_FOLDER%/dlg/SH#WPROD.D~
+
+COPY_EXISTING ~SH#WPROB.cre~ ~override/SH#WPROD.cre~
+	WRITE_ASCII 0x248 ~SH#WPROD~ #8
+	WRITE_ASCII 0x250 ~None~ #8
+	WRITE_ASCII 0x258 ~None~ #8
+	WRITE_ASCII 0x280 ~SH#WPROD~
+	WRITE_ASCII 0x2cc ~SH#WPROD~ #8
+
+//关闭所有效果的时候，新的鸟出来对话
+COPY_EXISTING ~SH#WPRO4.spl~ ~override~
+LPF ADD_SPELL_EFFECT INT_VAR opcode = 67 target = 1 duration = 5 STR_VAR resource = "SH#WPROD" END
+
+COPY ~%MOD_FOLDER%/spl/noname0~ ~override~
+
+/* *********************加星模式，兼容性差******************* */
+BEGIN @4
+REQUIRE_COMPONENT "SETUP-Shohy's_Weapon_Style_Rebalance.tp2" "0" @12
+SUBCOMPONENT @2
+
+COPY_EXISTING ~SH#WPROB.cre~ ~override~	//让鸟的SH#WPROB脚本失效
+	WRITE_ASCII 0x250 ~None~ #8
+
+OUTER_FOR (n=1;n<7;++n) BEGIN
+	COPY ~%MOD_FOLDER%/baf/blank.baf~ ~%MOD_FOLDER%/baf/SH#WPR7%n%.baf~
+	APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO7.baf~
+	COPY_EXISTING ~SH#WPROA.BCS~ ~override~
+	REPLACE_BCS_BLOCK CASE_INSENSITIVE ~%MOD_FOLDER%/baf/SH#WPR7%n%.baf~ ~%MOD_FOLDER%/baf/blank.baf~
+END
+
+COPY_EXISTING ~SH#WPROA.BCS~ ~override~
+	FOR (n=1;n<7;++n) BEGIN
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP ~!ProficiencyGT(Player%n%,PROFICIENCY2WEAPON,2)~ ~!ProficiencyGT(Player%n%,PROFICIENCY2WEAPON,4)~
+			REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP ~Proficiency(Player%n%,PROFICIENCY2HANDED,1)~ ~OR(2)
+				Proficiency(Player%n%,PROFICIENCY2HANDED,1)
+				Proficiency(Player%n%,PROFICIENCY2HANDED,2)~
+			REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP ~ProficiencyGT(Player%n%,PROFICIENCY2HANDED,1)~ ~ProficiencyGT(Player%n%,PROFICIENCY2HANDED,2)~
+			REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP ~Proficiency(Player%n%,PROFICIENCYSWORDANDSHIELD,1)~ ~OR(2)
+				Proficiency(Player%n%,PROFICIENCYSWORDANDSHIELD,1)
+				Proficiency(Player%n%,PROFICIENCYSWORDANDSHIELD,2)~
+			REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP ~ProficiencyGT(Player%n%,PROFICIENCYSWORDANDSHIELD,1)~ ~ProficiencyGT(Player%n%,PROFICIENCYSWORDANDSHIELD,2)~
+			REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP ~Proficiency(Player%n%,PROFICIENCYSINGLEWEAPON,1)~ ~OR(2)
+				Proficiency(Player%n%,PROFICIENCYSINGLEWEAPON,1)
+				Proficiency(Player%n%,PROFICIENCYSINGLEWEAPON,2)~
+			REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP ~ProficiencyGT(Player%n%,PROFICIENCYSINGLEWEAPON,1)~ ~ProficiencyGT(Player%n%,PROFICIENCYSINGLEWEAPON,2)~
+		END
+	END
+BUT_ONLY
+
+OUTER_SET "ALREADY2H3" = 0
+OUTER_SET "ALREADY1H3" = 0
+OUTER_SET "ALREADYSD3" = 0
+OUTER_SET "ALREADY2W4" = 0
+OUTER_SET "ALREADY2W5" = 0
+COPY_EXISTING ~STYLBONU.2DA~ ~override~
+	COUNT_2DA_ROWS 7 stylmax
+	FOR (stylrow = 1 ; stylrow < stylmax ; ++stylrow) BEGIN
+		READ_2DA_ENTRY stylrow 0 7 readstyl
+		PATCH_IF ("%readstyl%" STRING_COMPARE "TWOHANDED-2" = 0) BEGIN
+			SET_2DA_ENTRY "stylrow" 1 7 2
+			SET_2DA_ENTRY "stylrow" 3 7 "-1"
+			SET_2DA_ENTRY "stylrow" 5 7 "-1"
+		END
+		PATCH_IF ("%readstyl%" STRING_COMPARE "TWOHANDED-3" = 0) BEGIN
+			SET "ALREADY2H3" = 1
+			SET_2DA_ENTRY "stylrow" 1 7 2
+			SET_2DA_ENTRY "stylrow" 3 7 "-1"
+			SET_2DA_ENTRY "stylrow" 5 7 "-1"
+			SET_2DA_ENTRY "stylrow" 7 7 "-5"
+		END
+		PATCH_IF ("%readstyl%" STRING_COMPARE "SINGLEWEAPON-2" = 0) BEGIN
+			SET_2DA_ENTRY "stylrow" 1 7 1
+			SET_2DA_ENTRY "stylrow" 3 7 "-1"
+		END
+		PATCH_IF ("%readstyl%" STRING_COMPARE "SINGLEWEAPON-3" = 0) BEGIN
+			SET "ALREADY1H3" = 1
+			SET_2DA_ENTRY "stylrow" 1 7 1
+			SET_2DA_ENTRY "stylrow" 3 7 "-1"
+			SET_2DA_ENTRY "stylrow" 5 7 "-3"
+			SET_2DA_ENTRY "stylrow" 7 7 "-1"
+		END
+		PATCH_IF ("%readstyl%" STRING_COMPARE "SWORDANDSHIELD-2" = 0) BEGIN
+			SET_2DA_ENTRY "stylrow" 1 7 1
+			SET_2DA_ENTRY "stylrow" 3 7 "-1"
+			SET_2DA_ENTRY "stylrow" 7 7 "-1"
+		END
+		PATCH_IF ("%readstyl%" STRING_COMPARE "SWORDANDSHIELD-3" = 0) BEGIN
+			SET "ALREADYSD3" = 1
+			SET_2DA_ENTRY "stylrow" 1 7 1
+			SET_2DA_ENTRY "stylrow" 3 7 "-1"
+			SET_2DA_ENTRY "stylrow" 5 7 "-1"
+			SET_2DA_ENTRY "stylrow" 7 7 "-1"
+		END
+		PATCH_IF ("%readstyl%" STRING_COMPARE "TWOWEAPON-0" = 0) BEGIN
+			SET_2DA_ENTRY "stylrow" 1 7 "-2"
+			SET_2DA_ENTRY "stylrow" 2 7 "-2"
+		END
+		PATCH_IF ("%readstyl%" STRING_COMPARE "TWOWEAPON-1" = 0) BEGIN
+			SET_2DA_ENTRY "stylrow" 1 7 "-2"
+			SET_2DA_ENTRY "stylrow" 2 7 "-2"
+			SET_2DA_ENTRY "stylrow" 5 7 "-1"
+		END
+		PATCH_IF ("%readstyl%" STRING_COMPARE "TWOWEAPON-2" = 0) BEGIN
+			SET_2DA_ENTRY "stylrow" 1 7 "-1"
+			SET_2DA_ENTRY "stylrow" 2 7 "-1"
+			SET_2DA_ENTRY "stylrow" 5 7 "-2"
+		END
+		PATCH_IF ("%readstyl%" STRING_COMPARE "TWOWEAPON-3" = 0) BEGIN
+			SET_2DA_ENTRY "stylrow" 5 7 "-2"
+		END
+		PATCH_IF ("%readstyl%" STRING_COMPARE "TWOWEAPON-4" = 0) BEGIN
+			SET "ALREADY2W4" = 1
+			SET_2DA_ENTRY "stylrow" 1 7 1
+			SET_2DA_ENTRY "stylrow" 2 7 1
+			SET_2DA_ENTRY "stylrow" 3 7 "-1"
+			SET_2DA_ENTRY "stylrow" 4 7 "-1"
+			SET_2DA_ENTRY "stylrow" 5 7 "-3"
+			SET_2DA_ENTRY "stylrow" 7 7 "-1"
+		END
+		PATCH_IF ("%readstyl%" STRING_COMPARE "TWOWEAPON-5" = 0) BEGIN
+			SET "ALREADY2W5" = 1
+			SET_2DA_ENTRY "stylrow" 1 7 1
+			SET_2DA_ENTRY "stylrow" 2 7 1
+			SET_2DA_ENTRY "stylrow" 3 7 "-1"
+			SET_2DA_ENTRY "stylrow" 4 7 "-1"
+			SET_2DA_ENTRY "stylrow" 5 7 "-3"
+			SET_2DA_ENTRY "stylrow" 7 7 "-1"
+		END
+	END
+BUT_ONLY
+
+ACTION_IF "ALREADY2H3" != 1 BEGIN APPEND ~STYLBONU.2DA~ ~TWOHANDED-3      2                0                -1               0                -1               0                -5               1~ END
+ACTION_IF "ALREADY1H3" != 1 BEGIN APPEND ~STYLBONU.2DA~ ~SINGLEWEAPON-3   1                0                -1               0                -3               0                -1               1~ END
+ACTION_IF "ALREADYSD3" != 1 BEGIN APPEND ~STYLBONU.2DA~ ~SWORDANDSHIELD-3 1                0                -1               0                -1               -4               -1               0~ END
+ACTION_IF "ALREADY2W4" != 1 BEGIN APPEND ~STYLBONU.2DA~ ~TWOWEAPON-4      1                1                -1               -1               -3               0                -1               0~ END
+ACTION_IF "ALREADY2W5" != 1 BEGIN APPEND ~STYLBONU.2DA~ ~TWOWEAPON-5      1                1                -1               -1               -3               0                -1               0~ END
+
+COPY_EXISTING ~WEAPPROF.2DA~ ~override~
+	COUNT_2DA_COLS kitmax
+	FOR (kitcol = 4 ; kitcol < kitmax ; ++kitcol) BEGIN
+		READ_2DA_ENTRY 29 kitcol 10 prof2h
+		PATCH_IF prof2h = 2 BEGIN SET_2DA_ENTRY 29 kitcol 10 3 END
+		READ_2DA_ENTRY 30 kitcol 10 profsd
+		PATCH_IF profsd = 2 BEGIN SET_2DA_ENTRY 30 kitcol 10 3 END
+		READ_2DA_ENTRY 31 kitcol 10 prof1h
+		PATCH_IF prof1h = 2 BEGIN SET_2DA_ENTRY 31 kitcol 10 3 END
+		READ_2DA_ENTRY 32 kitcol 10 prof2w
+		PATCH_IF (prof2w = 3) OR (prof2w = 4) BEGIN SET_2DA_ENTRY 32 kitcol 10 5 END
+	END
+BUT_ONLY
+
+
+
+/* **************************智力感知魅力修正************************ */
+
+/* *********************仅战斗中生效，兼容性好******************* */
+BEGIN @6
+REQUIRE_COMPONENT "SETUP-Shohy's_Weapon_Style_Rebalance.tp2" "0" @12
+SUBCOMPONENT @5
+
+COPY_EXISTING ~SH#WPROC.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO4.baf~
+		FOR (n=1;n<7;++n) BEGIN
+			APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO5.baf~
+		END
+	END
+BUT_ONLY
+
+COPY ~%MOD_FOLDER%/spl/noname3~ ~override~
+COPY ~%MOD_FOLDER%/eff3~ ~override~
+
+COPY ~%MOD_FOLDER%/spl/SH#WPA00.spl~ ~override~
+	WRITE_SHORT   0x98 ~%SH#WPE00%~
+
+/* *********************全局生效，游戏负担重******************* */
+BEGIN @7
+REQUIRE_COMPONENT "SETUP-Shohy's_Weapon_Style_Rebalance.tp2" "0" @12
+SUBCOMPONENT @5
+
+COPY_EXISTING ~CAMPAIGN.2da~ ~override~
+	COUNT_2DA_ROWS 10 camprowmax	//至少10列column，row行数读入camprowmax
+	PATCH_IF camprowmax > 1 BEGIN
+		FOR (camprows = 1 ; camprows < camprowmax ; ++camprows) BEGIN
+			READ_2DA_ENTRY camprows 1 10 campscript	//WORLDSCRIPT名称
+			SET "%campscript%added" = 0
+		END
+		FOR (camprows = 1 ; camprows < camprowmax ; ++camprows) BEGIN
+			READ_2DA_ENTRY camprows 1 10 campscript	//WORLDSCRIPT名称
+				PATCH_IF "%campscript%added" = 0 BEGIN
+					INNER_ACTION BEGIN
+						EXTEND_TOP ~%campscript%.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO9.baf~
+					END
+					SET "%campscript%added" = 1
+				END
+		END
+	END ELSE BEGIN
+		INNER_ACTION BEGIN
+			EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO9.baf~
+			EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/baf/SH#WPRO9.baf~
+		END
+	END
+BUT_ONLY
+
+COPY_EXISTING ~SH#WPROC.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		FOR (n=1;n<7;++n) BEGIN
+			APPEND_FILE_EVALUATE ~%MOD_FOLDER%/baf/SH#WPRO5.baf~
+		END
+	END
+BUT_ONLY
+
+COPY ~%MOD_FOLDER%/spl/noname3~ ~override~
+COPY ~%MOD_FOLDER%/eff3~ ~override~
+
+COPY ~%MOD_FOLDER%/spl/SH#WPA00.spl~ ~override~
+	WRITE_SHORT   0x98 ~%SH#WPE00%~
+
+

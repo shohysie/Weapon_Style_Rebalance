@@ -1,6 +1,10 @@
+//武器流派调整，对Player1~6，每秒计数并生效一次。加入到SH#WPROA.bcs
+//必定安装，兼容组件2扣星模式。选择组件2加星模式时段落需要修改SH#WPROA里已经编译好的下列内容
+
 //右手对鸟无效为双手武器
 //双手武器攻击次数调整
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
@@ -13,10 +17,11 @@ THEN
 END
 
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
-	Proficiency(Player%n%,PROFICIENCY2HANDED,2)
+	ProficiencyGT(Player%n%,PROFICIENCY2HANDED,1)
 THEN
 	RESPONSE #100
 		SetGlobalTimer("WPCOUNT","LOCALS",1)
@@ -24,8 +29,9 @@ THEN
 		Continue()
 END
 
-//双手武器额外伤害加成
+//双手武器额外伤害加成，不需要武器熟练度
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
@@ -37,6 +43,7 @@ THEN
 END
 
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
@@ -51,6 +58,7 @@ THEN
 END
 
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
@@ -59,27 +67,14 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobalTimer("WPCOUNT","LOCALS",1)
-		ReallyForceSpellRes("SH#WP2HB",Player%n%)
-		ReallyForceSpellRes("SH#WP2HB",Player%n%)	//多+2伤害
-		Continue()
-END
-
-//如果发现扣掉的星会加以补偿
-IF
-	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
-	!IsWeaponRanged(Player%n%)
-	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
-	TriggerOverride(Player%n%,Global("SH#WP2HS","LOCALS",1))
-THEN
-	RESPONSE #100
-		SetGlobalTimer("WPCOUNT","LOCALS",1)
-		ReallyForceSpellRes("SH#WPEX1",Player%n%)
+		ReallyForceSpellRes("SH#WP2HC",Player%n%)	//多+2伤害
 		Continue()
 END
 
 //左右手都对鸟有效为双武器
 //减少伤害
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
@@ -93,6 +88,7 @@ THEN
 END
 
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
@@ -106,6 +102,7 @@ THEN
 END
 
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
@@ -119,11 +116,12 @@ THEN
 END
 
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
-	Proficiency(Player%n%,PROFICIENCY2WEAPON,3)
+	ProficiencyGT(Player%n%,PROFICIENCY2WEAPON,2)
 THEN
 	RESPONSE #100
 		SetGlobalTimer("WPCOUNT","LOCALS",1)
@@ -133,11 +131,12 @@ END
 
 //双武器必须投入五颗星才能不减攻击次数
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!IsWeaponRanged(Player%n%)
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
-	!Proficiency(Player%n%,PROFICIENCY2WEAPON,3)
+	!ProficiencyGT(Player%n%,PROFICIENCY2WEAPON,2)
 	!TriggerOverride(Player%n%,GlobalGT("SH#WP2WS","LOCALS",1))
 THEN
 	RESPONSE #100
@@ -146,23 +145,10 @@ THEN
 		Continue()
 END
 
-//如果发现扣掉的星会加以补偿
-IF
-	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
-	!IsWeaponRanged(Player%n%)
-	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
-	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
-	TriggerOverride(Player%n%,GlobalGT("SH#WP2WS","LOCALS",0))
-THEN
-	RESPONSE #100
-		SetGlobalTimer("WPCOUNT","LOCALS",1)
-		ReallyForceSpellRes("SH#WPEX1",Player%n%)
-		Continue()
-END
-
 //右手对鸟有效同时左手有东西但对鸟无效/正装备盾牌是剑盾
-//剑盾流特效可以在持有远程武器时施展
+//剑盾流特效可以在持有远程武器时施展（限飞刀投石索等。法术文件中排除弓弩）
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
 	//HasItemCategory(Player%n%,SHIELD,TRUE)
@@ -177,6 +163,7 @@ THEN
 END
 
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	ModalStateObject(Player%n%,NONE)
 	NotStateCheck(Player%n%,STATE_DISABLED)
@@ -193,6 +180,7 @@ THEN
 END
 
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	ModalStateObject(Player%n%,NONE)
 	NotStateCheck(Player%n%,STATE_DISABLED)
@@ -200,7 +188,7 @@ IF
 	//HasItemCategory(Player%n%,SHIELD,TRUE)
 	HasItemSlot(Player%n%,SLOT_SHIELD)
 	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))	
-	Proficiency(Player%n%,PROFICIENCYSWORDANDSHIELD,2)
+	ProficiencyGT(Player%n%,PROFICIENCYSWORDANDSHIELD,1)
 THEN
 	RESPONSE #100
 		SetGlobalTimer("WPCOUNT","LOCALS",1)
@@ -208,24 +196,10 @@ THEN
 		Continue()
 END
 
-//如果发现扣掉的星会加以补偿
-IF
-	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
-	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
-	//HasItemCategory(Player%n%,SHIELD,TRUE)
-	HasItemSlot(Player%n%,SLOT_SHIELD)
-	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))	
-	TriggerOverride(Player%n%,Global("SH#WPSDS","LOCALS",1))
-THEN
-	RESPONSE #100
-		SetGlobalTimer("WPCOUNT","LOCALS",1)
-		ReallyForceSpellRes("SH#WPEX1",Player%n%)
-		Continue()
-END
-
 //右手对鸟有效且左手无物品是单手武器
 //单手武器攻击次数和攻击效果调整
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!Class(Player%n%,Monk)
 	!IsWeaponRanged(Player%n%)
@@ -236,42 +210,28 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("WPCOUNT","LOCALS",1)
 		ReallyForceSpellRes("SH#WP1HA",Player%n%)
-		ReallyForceSpellRes("SH#WP1H1",Player%n%)
 		Continue()
 END
 
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	!Class(Player%n%,Monk)
 	!IsWeaponRanged(Player%n%)
 	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
 	!HasItemSlot(Player%n%,SLOT_SHIELD)
-	Proficiency(Player%n%,PROFICIENCYSINGLEWEAPON,2)
+	ProficiencyGT(Player%n%,PROFICIENCYSINGLEWEAPON,1)
 THEN
 	RESPONSE #100
 		SetGlobalTimer("WPCOUNT","LOCALS",1)
 		ReallyForceSpellRes("SH#WPAR1",Player%n%)
 		ReallyForceSpellRes("SH#WP1HB",Player%n%)
-		ReallyForceSpellRes("SH#WP1H2",Player%n%)
-		Continue()
-END
-
-//如果发现扣掉的星会加以补偿
-IF
-	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
-	!IsWeaponRanged(Player%n%)
-	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
-	!HasItemSlot(Player%n%,SLOT_SHIELD)
-	TriggerOverride(Player%n%,Global("SH#WP1HS","LOCALS",1))
-THEN
-	RESPONSE #100
-		SetGlobalTimer("WPCOUNT","LOCALS",1)
-		ReallyForceSpellRes("SH#WPEX1",Player%n%)
 		Continue()
 END
 
 //和尚
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	Class(Player%n%,Monk)
 	!IsWeaponRanged(Player%n%)
@@ -286,6 +246,7 @@ THEN
 END
 
 IF
+	!Global("SH#WPROP","GLOBAL",1)
 	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
 	Class(Player%n%,Monk)
 	!HasWeaponEquiped(Player%n%)

@@ -1,0 +1,62 @@
+//组件2扣星模式专用的扣星补偿，对Player1~6，每秒计数并生效一次。加入到SH#WPROB.bcs
+//组件2扣星模式需安装，加星模式无视
+
+//右手对鸟无效为双手武器
+//如果发现扣掉的星会加以补偿
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,Global("SH#WP2HS","LOCALS",1))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPEX1",Player%n%)
+		Continue()
+END
+
+//左右手都对鸟有效为双武器
+//如果发现扣掉的星会加以补偿
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+	TriggerOverride(Player%n%,GlobalGT("SH#WP2WS","LOCALS",0))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPEX1",Player%n%)
+		Continue()
+END
+
+//右手对鸟有效同时左手有东西但对鸟无效/正装备盾牌是剑盾
+//如果发现扣掉的星会加以补偿
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	//HasItemCategory(Player%n%,SHIELD,TRUE)
+	HasItemSlot(Player%n%,SLOT_SHIELD)
+	!TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))	
+	TriggerOverride(Player%n%,Global("SH#WPSDS","LOCALS",1))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPEX1",Player%n%)
+		Continue()
+END
+
+//右手对鸟有效且左手无物品是单手武器
+//如果发现扣掉的星会加以补偿
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	!HasItemSlot(Player%n%,SLOT_SHIELD)
+	TriggerOverride(Player%n%,Global("SH#WP1HS","LOCALS",1))
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPEX1",Player%n%)
+		Continue()
+END

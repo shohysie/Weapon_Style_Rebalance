@@ -1,0 +1,55 @@
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+	!ProficiencyGT(Player%n%,PROFICIENCY2WEAPON,0)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP2W0",Player%n%)
+		Continue()
+END
+
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+	Proficiency(Player%n%,PROFICIENCY2WEAPON,1)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP2W1",Player%n%)
+		Continue()
+END
+
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+	Proficiency(Player%n%,PROFICIENCY2WEAPON,2)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP2W2",Player%n%)
+		Continue()
+END
+
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalTimerNotExpired("WPCOUNT","LOCALS")
+	!IsWeaponRanged(Player%n%)
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",MAINHAND))
+	TriggerOverride(Player%n%,WeaponEffectiveVs("SH#WPROB",OFFHAND))
+	ProficiencyGT(Player%n%,PROFICIENCY2WEAPON,2)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("WPCOUNT","LOCALS",1)
+		ReallyForceSpellRes("SH#WP2W3",Player%n%)
+		Continue()
+END

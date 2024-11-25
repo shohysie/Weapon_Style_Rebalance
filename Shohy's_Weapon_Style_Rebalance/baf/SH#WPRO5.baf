@@ -1,0 +1,26 @@
+//唱歌跳舞属性额外调整，对Player1~6，加入到SH#WPROC.baf
+
+//单体法术，只对唱歌跳舞的人物施法一次，法术内部自行判断人物属性施展范围buff
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalGT("WPENEMY","LOCALS",0)
+	Class(Player%n%,BARD_ALL)
+	ModalStateObject(Player%n%,BATTLESONG)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPA06",Player%n%)
+		SetGlobal("WPENEMY","LOCALS",1)
+		Continue()
+END
+
+IF
+	!Global("SH#WPROP","GLOBAL",1)
+	!GlobalGT("WPENEMY","LOCALS",0)
+	Class(Player%n%,SHAMAN)
+	ModalStateObject(Player%n%,SHAMANDANCE)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRes("SH#WPA07",Player%n%)
+		SetGlobal("WPENEMY","LOCALS",1)
+		Continue()
+END

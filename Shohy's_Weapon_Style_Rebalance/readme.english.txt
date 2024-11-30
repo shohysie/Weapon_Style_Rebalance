@@ -3,13 +3,10 @@ Intelligence/Wisdom/Charisma also brings extra modifiers.
 All ajustments take effect only in combat, not in peacetime.
 You can click the mode switch button on the protagonist's skill bar to activate the mechanism or not. The button is obtained in the first battle. 
 
+
 ///////////Compatibility & bugs////////////
 
 This MOD doesn't modify any of the original game data, it only temporarily adds additional adjustments in combat, so it is compatible with everything.
-One glitch: After a battle, the time to save the game may be delayed for a few seconds.
-
-This MOD relies on the Global Script, but the Global Scripts won't start when entering some small areas, causing all rebalances no longer to perform.
-The problem can be solved by saving/loading, or exiting and entering such areas during combat.
 
 
 ///////////Components///////////
